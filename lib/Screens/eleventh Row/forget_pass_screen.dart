@@ -3,9 +3,7 @@ import 'package:get/get.dart';
 import 'package:untitled2/button/gradient_button.dart';
 import 'package:untitled2/custom container/bubble_container.dart';
 import 'package:untitled2/custom container/s2_container.dart';
-import 'package:untitled2/custom container/s_curved_container.dart';
 import 'package:untitled2/Screens/eleventh%20Row/set_new_password_screen.dart';
-import 'package:untitled2/Screens/Tenth%20Row/upgrade_screen.dart';
 
 class ForgotPassword extends StatelessWidget {
   const ForgotPassword({Key? key});

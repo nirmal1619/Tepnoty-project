@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:untitled2/custom%20container/stack_desgine.dart';
 
 class LogInUsingPin extends StatefulWidget {

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:untitled2/custom%20container/stack_desgine.dart';
-import 'package:untitled2/Screens/Fifth%20row/Fourth%20Row/feedback_completed.dart';
-import '../../../button/gradient_button.dart';
+import 'package:untitled2/Screens/Fourth%20Row/feedback_completed.dart';
 
 class FeedbackScreen extends StatelessWidget {
   const FeedbackScreen({super.key});

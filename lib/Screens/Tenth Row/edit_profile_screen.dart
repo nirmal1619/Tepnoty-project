@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:untitled2/custom%20container/littleCurvedContainer.dart';
-import 'package:untitled2/custom%20container/s2_container.dart';
 import 'package:untitled2/Screens/Tenth%20Row/setting_screen.dart';
 
 class EditProfile extends StatelessWidget {

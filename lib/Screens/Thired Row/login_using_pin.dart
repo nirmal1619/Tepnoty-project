@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:untitled2/custom%20container/bubble_container.dart';
 import 'package:untitled2/custom%20container/s_curved_container.dart';
-import 'package:untitled2/Screens/Fifth%20row/Fourth%20Row/home_screen.dart';
+import 'package:untitled2/Screens/Fourth%20Row/home_screen.dart';
 
 bool pinOne = false;
 bool pinTwo = false;

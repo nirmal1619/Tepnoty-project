@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:untitled2/Screen%20state/dataset_state.dart';
 import 'package:untitled2/constant/colors_value.dart';
-import 'package:untitled2/custom%20Icons/bell_icon.dart';
 import 'package:untitled2/custom%20container/littleCurvedContainer.dart';
-import 'package:untitled2/Screens/Fifth%20row/Fourth%20Row/dataset_screen.dart';
+import 'package:untitled2/Screens/Fourth%20Row/dataset_screen.dart';
 
 class NotificationScreen extends StatefulWidget {
   const NotificationScreen({Key? key}) : super(key: key);

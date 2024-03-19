@@ -5,7 +5,6 @@ import 'package:untitled2/Screens/Thired%20Row/login_opstion.dart';
 import 'package:untitled2/button/gradient_button.dart';
 import 'package:untitled2/constant/colors_value.dart';
 import 'package:untitled2/custom%20container/stack_desgine.dart';
-import 'package:untitled2/Screens/eleventh%20Row/login_screen.dart';
 
 class RegistrationScreen extends StatelessWidget {
   const RegistrationScreen({super.key});

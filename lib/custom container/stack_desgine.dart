@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:untitled2/custom%20container/bubble_container.dart';
 import 'package:untitled2/custom%20container/s2_container.dart';
 import 'package:untitled2/custom%20container/s_curved_container.dart';

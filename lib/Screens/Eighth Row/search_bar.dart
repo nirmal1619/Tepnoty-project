@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:untitled2/Screens/ninth%20row/profile_view.dart';
-import 'package:untitled2/Screens/Fifth%20row/Fourth%20Row/user_profile.dart';
 
 class SearchBarScreen extends StatefulWidget {
   const SearchBarScreen({Key? key}) : super(key: key);

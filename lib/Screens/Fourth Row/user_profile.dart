@@ -4,9 +4,7 @@ import 'package:untitled2/button/adjustable_gradient_button.dart';
 import 'package:untitled2/constant/colors_value.dart';
 
 import 'package:untitled2/custom%20container/stack_desgine.dart';
-import 'package:untitled2/Screens/Fifth%20row/Fourth%20Row/member%20ship%20plans/plus_membership.dart';
-
-import 'notification_screen.dart';
+import 'package:untitled2/Screens/Fourth%20Row/member%20ship%20plans/plus_membership.dart';
 
 class UserProfile extends StatelessWidget {
   const UserProfile({super.key});

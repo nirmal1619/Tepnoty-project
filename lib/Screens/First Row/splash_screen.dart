@@ -1,7 +1,8 @@
-import 'dart:ffi';
+import 'dart:async';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:untitled2/Screens/First%20Row/on_boarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -20,6 +21,10 @@ class _TestScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     _startAnimation();
+    // Add a delay to navigate to the onboarding screen after some duration
+    Timer(Duration(seconds: 6), () {
+      Get.off(OnBoardingScreen());
+    });
   }
 
   void _startAnimation() async {
@@ -65,19 +70,19 @@ class _TestScreenState extends State<SplashScreen> {
                 top: _position + 15,
                 child: isCompelete
                     ? Animate(
-                  effects: [
-                    FadeEffect(duration: Duration(seconds: 1)),
-                    SlideEffect()
-                  ],
-                  child: Text(
-                    appName,
-                    style: TextStyle(
-                        fontSize: 38,
-                        height: 1.43,
-                        letterSpacing: 2.0,
-                        fontWeight: FontWeight.w500),
-                  ),
-                )
+                        effects: [
+                          FadeEffect(duration: Duration(seconds: 1)),
+                          SlideEffect()
+                        ],
+                        child: Text(
+                          appName,
+                          style: TextStyle(
+                              fontSize: 38,
+                              height: 1.43,
+                              letterSpacing: 2.0,
+                              fontWeight: FontWeight.w500),
+                        ),
+                      )
                     : Text("")),
             Padding(
               padding: const EdgeInsets.only(top: 50),

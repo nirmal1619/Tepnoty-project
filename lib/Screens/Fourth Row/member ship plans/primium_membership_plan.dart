@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:untitled2/button/gradient_button.dart';
 import 'package:untitled2/constant/membership_plans_details.dart';
 import 'package:untitled2/custom%20container/circuler_border_Container.dart';
-import 'package:untitled2/Screens/Fifth%20row/Fourth%20Row/member%20ship%20plans/ultra_membership_plans.dart';
+import 'package:untitled2/Screens/Fourth%20Row/member%20ship%20plans/ultra_membership_plans.dart';
 
 class PremiumMemberShipPlan extends StatelessWidget {
   const PremiumMemberShipPlan({Key? key});

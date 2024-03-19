@@ -38,7 +38,10 @@ class CreateAccountScreen extends StatelessWidget {
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [Color(0xFF391E5D), Color(0xFF8B4AE4)],
+                  colors: [
+                    Color.fromARGB(255, 132, 64, 221),
+                    Color(0xFF8B4AE4)
+                  ],
                 ),
               ),
               child: BubbleContainer(),

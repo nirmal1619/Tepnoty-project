@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:untitled2/custom%20container/s2_container.dart';
-import 'package:untitled2/custom%20container/stack_desgine.dart';
 import 'package:untitled2/Screens/Eighth%20Row/explore/search_screen.dart';
 
 class ExploreScreen3 extends StatefulWidget {

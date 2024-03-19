@@ -1,11 +1,15 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_instance/get_instance.dart';
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:untitled2/Screen%20state/onboarding_state.dart';
+import 'package:untitled2/Screens/Second%20Row/create_account.dart';
 import 'package:untitled2/button/backward_button.dart';
 import 'package:untitled2/button/forward_button.dart';
 import 'package:untitled2/constant/colors_value.dart';
-import 'package:untitled2/Screens/Second%20Row/create_account.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   OnBoardingScreen({super.key});
@@ -19,33 +23,14 @@ class OnBoardingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     RxInt currentPage = onbordingState.onboardingPage;
     return Scaffold(
-      // floatingActionButton: Row(
-      //   children: [
-      //     // BackWordButton(VoidCallback: () {}),
-      //     GestureDetector(
-      //       onTap: () => onbordingState.nextPage(),
-      //       child: Padding(
-      //           padding: const EdgeInsets.only(right: 5, bottom: 75),
-      //           child: ForwardButton(onPressed: () {
-      //             onbordingState.nextPage();
-      //           })),
-      //     ),
-      //   ],
-      // ),
       appBar: AppBar(
-        // leading: IconButton(
-        //   onPressed: () {},
-        //   icon: const Icon(Icons.arrow_back),
-        // ),
         actions: [
           TextButton(
-              onPressed: () {},
-              child: TextButton(
-                onPressed: () {
-                  Get.to(CreateAccountScreen());
-                },
-                child: Text("Next"),
-              ))
+            onPressed: () {
+              Get.to(CreateAccountScreen());
+            },
+            child: Text("Next"),
+          )
         ],
       ),
       body: Padding(
@@ -69,15 +54,17 @@ class OnBoardingScreen extends StatelessWidget {
                             height: 80,
                             width: 80,
                           ),
-                    // ForwardButton(onPressed: () {}),
-
                     GestureDetector(
                       onTap: () {
                         onbordingState.nextPage();
-                        print(currentPage);
+                        if (currentPage == 2) {
+                          Timer(Duration(seconds: 3), () {
+                            Get.to(CreateAccountScreen());
+                          });
+                        }
                       },
                       child: ForwardButton(),
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -116,7 +103,7 @@ class OnBoardingScreen extends StatelessWidget {
       width: 8,
       decoration: BoxDecoration(
         color: Colors.grey.shade200,
-        borderRadius: BorderRadius.circular(4), // Border color white
+        borderRadius: BorderRadius.circular(4),
       ),
     );
   }
@@ -127,7 +114,7 @@ class OnBoardingScreen extends StatelessWidget {
       width: 30,
       decoration: BoxDecoration(
         color: secondaryColorValue,
-        borderRadius: BorderRadius.circular(4), // Border color white
+        borderRadius: BorderRadius.circular(4),
       ),
     );
   }
@@ -170,13 +157,8 @@ class OnBoardingScreen extends StatelessWidget {
               style: const TextStyle(fontSize: 16, color: Color(0xFFD9D9D9)),
             ),
           )
-          // SizedBox(
-          //   height: 15,
-          // ),
         ],
       ),
-      // decoration:
-      //     BoxDecoration(border: Border.all(width: 1, color: Colors.white)),
     );
   }
 }

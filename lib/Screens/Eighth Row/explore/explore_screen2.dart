@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:untitled2/Screens/Eighth%20Row/explore/explore_screen3.dart';
 
-import 'explore_screen.dart';
 
 class ExploreScreen2 extends StatefulWidget {
   const ExploreScreen2({super.key});

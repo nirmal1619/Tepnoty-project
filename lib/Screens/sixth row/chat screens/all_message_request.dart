@@ -5,7 +5,7 @@ import 'package:untitled2/constant/colors_value.dart';
 import 'package:untitled2/custom%20container/littleCurvedContainer.dart';
 import 'package:untitled2/Screens/sixth%20row/chat%20screens/chating_screen.dart';
 import 'package:untitled2/Screens/Tenth%20Row/edit_profile_screen.dart';
-import 'package:untitled2/Screens/Fifth%20row/Fourth%20Row/user_profile.dart';
+import 'package:untitled2/Screens/Fourth%20Row/user_profile.dart';
 
 class AllMessageRequest extends StatelessWidget {
   const AllMessageRequest({Key? key}) : super(key: key);

@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:untitled2/constant/colors_value.dart';
 import 'package:untitled2/custom%20container/s2_container.dart';
 import 'package:untitled2/Screens/eleventh%20Row/forget_pass_screen.dart';
-import 'package:untitled2/Screens/eleventh%20Row/login_screen.dart';
 
 class ReportScreen extends StatelessWidget {
   const ReportScreen({Key? key});

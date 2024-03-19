@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomTheme {
   static final ThemeData darkMode = ThemeData.dark().copyWith(
@@ -7,6 +8,7 @@ class CustomTheme {
     iconTheme: const IconThemeData(
       color: Colors.white,
     ),
+
     appBarTheme: const AppBarTheme(
         iconTheme: IconThemeData(color: Colors.white, size: 24),
         backgroundColor: Colors.transparent,
@@ -19,22 +21,70 @@ class CustomTheme {
             letterSpacing: 1.3)),
 
     hintColor: const Color(0xFF6E6E6E),
-    textTheme: const TextTheme(
+    textTheme: TextTheme(
       // Apply Lexend font to all text styles
 
-      displayLarge: TextStyle(fontFamily: 'Lexend', color: Colors.white),
-      displayMedium: TextStyle(fontFamily: 'Lexend', color: Colors.white),
-      displaySmall: TextStyle(fontFamily: 'Lexend', color: Colors.white),
-      headlineMedium: TextStyle(fontFamily: 'Lexend', color: Colors.white),
-      headlineSmall: TextStyle(fontFamily: 'Lexend', color: Colors.white),
-      titleLarge: TextStyle(fontFamily: 'Lexend', color: Colors.white),
-      titleMedium: TextStyle(fontFamily: 'Lexend', color: Colors.white),
-      titleSmall: TextStyle(fontFamily: 'Lexend', color: Colors.white),
-      bodyLarge: TextStyle(fontFamily: 'Lexend', color: Colors.white),
-      bodyMedium: TextStyle(fontFamily: 'Lexend', color: Colors.white),
-      bodySmall: TextStyle(fontFamily: 'Lexend', color: Colors.white),
-      labelLarge: TextStyle(fontFamily: 'Lexend', color: Colors.white),
-      labelSmall: TextStyle(fontFamily: 'Lexend', color: Colors.white),
+      displayLarge: GoogleFonts.lexend(
+        textStyle: TextStyle(color: Colors.white, fontSize: 34),
+      ),
+      displayMedium: GoogleFonts.lexend(
+        textStyle: TextStyle(
+          fontSize: 24,
+          color: Colors.white,
+        ),
+      ),
+      displaySmall: GoogleFonts.lexend(
+        textStyle: TextStyle(color: Colors.white, fontSize: 18),
+      ),
+      headlineMedium: GoogleFonts.lexend(
+        textStyle: TextStyle(color: Colors.white, fontSize: 16),
+      ),
+      headlineSmall: GoogleFonts.lexend(
+        textStyle: TextStyle(
+          color: Colors.white,
+          fontSize: 12,
+        ),
+      ),
+      titleLarge: GoogleFonts.lexend(
+        textStyle: TextStyle(
+          color: Colors.white,
+        ),
+      ),
+      titleMedium: GoogleFonts.lexend(
+        textStyle: TextStyle(
+          color: Colors.white,
+        ),
+      ),
+      titleSmall: GoogleFonts.lexend(
+        textStyle: TextStyle(
+          color: Colors.white,
+        ),
+      ),
+      bodyLarge: GoogleFonts.lexend(
+        textStyle: TextStyle(
+          color: Colors.white,
+        ),
+      ),
+      bodyMedium: GoogleFonts.lexend(
+        textStyle: TextStyle(
+          color: Colors.white,
+        ),
+      ),
+      bodySmall: GoogleFonts.lexend(
+        textStyle: TextStyle(
+          color: Colors.white,
+        ),
+      ),
+      labelLarge: GoogleFonts.lexend(
+        textStyle: TextStyle(
+          color: Colors.white,
+        ),
+      ),
+      labelSmall: GoogleFonts.lexend(
+        textStyle: TextStyle(
+          color: Colors.white,
+        ),
+      ),
     ),
     dialogTheme: DialogTheme(
       backgroundColor: Colors.black,

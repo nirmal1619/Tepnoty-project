@@ -4,7 +4,6 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:untitled2/button/gradient_button.dart';
 import 'package:untitled2/custom%20container/stack_desgine.dart';
 import 'package:untitled2/Screens/Thired%20Row/finger_print_screen.dart';
-import 'package:untitled2/Screens/Second%20Row/registration_succesful.dart';
 
 class LoginUsing extends StatelessWidget {
   const LoginUsing({super.key});

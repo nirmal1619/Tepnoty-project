@@ -3,7 +3,6 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:untitled2/custom%20container/bottom_sheet_container.dart';
 import 'package:untitled2/custom%20container/stack_desgine.dart';
-import 'package:untitled2/Screens/sixth%20row/chat%20screens/chat_screen.dart';
 import 'package:untitled2/Screens/sixth%20row/chat%20screens/message_request.dart';
 
 class ProfileViewScreen extends StatefulWidget {

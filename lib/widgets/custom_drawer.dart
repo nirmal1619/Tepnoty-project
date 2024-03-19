@@ -1,29 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class CustomDrawer extends StatelessWidget {
-  const CustomDrawer({super.key});
+  CustomDrawer({Key? key});
 
   @override
   Widget build(BuildContext context) {
     bool isDarkMode = Get.theme.brightness == Brightness.dark;
 
     return Drawer(
+      // width: 50,
       child: Container(
-        width: 280,
+        width: 280.w,
+        height: 926.h,
         color: isDarkMode ? Colors.black87 : Colors.white,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
+          padding: EdgeInsets.symmetric(horizontal: 10.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 60),
+              SizedBox(height: 60.h),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
                 child: Row(
                   children: [
-                    const CircleAvatar(
-                      radius: 32,
+                    CircleAvatar(
+                      radius: 32.r,
                       backgroundColor: Colors.white,
                       // Replace with user's avatar image
                       // backgroundImage: AssetImage('assets/user_avatar.png'),
@@ -32,23 +35,23 @@ class CustomDrawer extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          padding: EdgeInsets.symmetric(horizontal: 16.w),
                           child: Text(
                             'Mani Kumar Pokola',
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 16.sp,
                               color: isDarkMode ? Colors.white : Colors.black,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
-                        const SizedBox(height: 8),
-                        const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                        SizedBox(height: 8.h),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 16.w),
                           child: Text(
                             'Design Stylist',
                             style: TextStyle(
-                              fontSize: 12,
+                              fontSize: 12.sp,
                               color: Color(0xFFD9D9D9),
                             ),
                           ),
@@ -58,58 +61,59 @@ class CustomDrawer extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 24),
+              SizedBox(height: 24.h),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
                 child: Container(
-                    height: 90,
-                    width: 270,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: Colors.white, width: 1),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 20),
-                          child: CircleAvatar(
-                            radius: 25,
+                  height: 90.h,
+                  width: 270.w,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12.r),
+                    border: Border.all(color: Colors.white, width: 1),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20.w),
+                        child: CircleAvatar(
+                          radius: 25.r,
+                        ),
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 8.w),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(height: 15.h),
+                              Text(
+                                'Upgrade Program',
+                                style: TextStyle(
+                                  height: 1.5,
+                                  fontSize: 14.sp,
+                                  color: Get.isDarkMode
+                                      ? Colors.white
+                                      : Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                'Unlock your AI Model and get all features',
+                                style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                        Flexible(
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 8),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                const SizedBox(
-                                  height: 15,
-                                ),
-                                Text(
-                                  'Upgrade Program',
-                                  style: TextStyle(
-                                      height: 1.5,
-                                      fontSize: 14,
-                                      color: Get.isDarkMode
-                                          ? Colors.white
-                                          : Colors.black,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                const Text(
-                                  'Unlock your AI Model and get all features',
-                                  style: TextStyle(
-                                      fontSize: 12, color: Colors.white),
-                                ),
-                              ],
-                            ),
-                          ),
-                        )
-                      ],
-                    )),
+                      )
+                    ],
+                  ),
+                ),
               ),
-              const SizedBox(height: 5),
+              SizedBox(height: 5.h),
               Expanded(
                 child: ListView(
                   children: [
@@ -120,20 +124,20 @@ class CustomDrawer extends StatelessWidget {
                     _buildDrawerItem(Icons.help_center_outlined, 'Help Center'),
                     _buildDrawerItem(
                         Icons.feedback_outlined, 'Send us Feedback'),
-                    const SizedBox(
-                        height:
-                            10), // Add SizedBox to create space between items and Logout button
+                    SizedBox(
+                        height: 10
+                            .h), // Add SizedBox to create space between items and Logout button
                   ],
                 ),
               ),
-              const Divider(color: Colors.grey),
+              Divider(color: Colors.grey),
               ListTile(
                 onTap: () {
                   // Handle logout action
                 },
                 leading: Icon(Icons.logout,
                     color: Get.isDarkMode ? Colors.white : Colors.black),
-                title: const Text(
+                title: Text(
                   'Logout',
                   style: TextStyle(color: Colors.white),
                 ),
@@ -150,8 +154,9 @@ class CustomDrawer extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
-          height: 35,
+          height: 35.h,
           child: ListTile(
+            titleAlignment: ListTileTitleAlignment.center,
             onTap: () {},
             leading: Icon(
               icon,
@@ -160,17 +165,16 @@ class CustomDrawer extends StatelessWidget {
             // horizontalTitleGap: Ed,\
             // titleAlignment: ListTileTitleAlignment.threeLine,
             title: Text(
-              textAlign: TextAlign.start,
               name,
               style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 16.sp,
                   fontWeight: FontWeight.bold,
                   color: Get.isDarkMode ? Colors.white : Colors.black),
             ),
           ),
         ),
-        const Padding(
-          padding: EdgeInsets.only(left: 18),
+        Padding(
+          padding: EdgeInsets.only(left: 18.w, top: 10),
           child: Divider(color: Colors.grey),
         ),
       ],
