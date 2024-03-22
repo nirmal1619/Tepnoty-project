@@ -1,99 +1,83 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:untitled2/button/adjustable_gradient_button.dart';
 import 'package:untitled2/constant/colors_value.dart';
-
 import 'package:untitled2/custom%20container/stack_desgine.dart';
-import 'package:untitled2/Screens/Fourth%20Row/member%20ship%20plans/plus_membership.dart';
 
 class UserProfile extends StatelessWidget {
-  const UserProfile({super.key});
+  const UserProfile({Key? key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
+        leading: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
         backgroundColor: Colors.transparent,
         actions: [
-          IconButton(
-              onPressed: () {
-                Get.to(() => PlusMemberShipPlan());
-              },
-              icon: Icon(Icons.arrow_forward)),
           Padding(
-            padding: const EdgeInsets.all(20),
-            child: SizedBox(
-              child: AdjustableGradientButton(
-                buttonHeight: 22,
-                buttonWidth: 90,
-                buttonName: "Go Premium",
-                voidCallback: () {},
-              ),
+            padding: const EdgeInsets.only(right: 24),
+            child: AdjustableGradientButton(
+              buttonHeight: 22.h,
+              buttonWidth: 90.w,
+              buttonName: "Go Premium",
+              voidCallback: () {},
             ),
           ),
-          // TextButton(
-          //     onPressed: () {},
-          //     child: TextButton(
-          //       onPressed: () {
-          //         Get.to(() => NotificationScreen());
-          //       },
-          //       child: Text("Next"),
-          //     ))
         ],
       ),
       body: Stack(
         children: [
-          const StackDesign2(),
+          StackDesign2(),
           Positioned(
-            top: 110,
-            left: 24,
-            right: 24,
+            top: 110.h,
+            left: 24.w,
+            right: 24.w,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const SizedBox(height: 20),
+                SizedBox(height: 20.h),
                 profileStatus(),
-                const SizedBox(height: 20),
-                const Text(
+                SizedBox(height: 20.h),
+                Text(
                   "Manikumar Pokala",
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 16.sp),
                 ),
-                const Text(
+                Text(
                   "Leave a note",
-                  style: TextStyle(fontSize: 16, color: primaryColorValue),
+                  style: TextStyle(fontSize: 16.sp, color: primaryColorValue),
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: 20.h),
                 textWithIcon(Icons.dark_mode_outlined, "Dark Mode", () {}),
-                const SizedBox(height: 10),
-                const Divider(),
-                const SizedBox(height: 10),
+                SizedBox(height: 10.h),
+                Divider(),
+                SizedBox(height: 10.h),
                 textWithIcon(Icons.circle_outlined, "Active Status", () {}),
-                const SizedBox(height: 10),
-                const Divider(),
-                const SizedBox(height: 10),
+                SizedBox(height: 10.h),
+                Divider(),
+                SizedBox(height: 10.h),
                 textWithIcon(Icons.help_outline_outlined, "Help", () {}),
-                const SizedBox(height: 10),
-                const Divider(),
-                const SizedBox(height: 10),
+                SizedBox(height: 10.h),
+                Divider(),
+                SizedBox(height: 10.h),
                 textWithIcon(Icons.privacy_tip_outlined, "Privacy", () {}),
-                const SizedBox(height: 10),
-                const Divider(),
-                const SizedBox(height: 10),
+                SizedBox(height: 10.h),
+                Divider(),
+                SizedBox(height: 10.h),
                 textWithIcon(
                     Icons.perm_device_information_rounded, "Update", () {}),
-                const SizedBox(height: 10),
-                const Divider(),
-                const SizedBox(height: 10),
+                SizedBox(height: 10.h),
+                Divider(),
+                SizedBox(height: 10.h),
                 textWithIcon(Icons.fingerprint,
                     "Fingerprint, Face, and Password", () {}),
-                const SizedBox(height: 10),
-                const Divider(),
-                const SizedBox(height: 10),
+                SizedBox(height: 10.h),
+                Divider(),
+                SizedBox(height: 10.h),
                 textWithIcon(
                     Icons.monetization_on, "Tepnoty Plus Membership", () {}),
-                const SizedBox(height: 10),
-                const Divider(),
+                SizedBox(height: 10.h),
+                Divider(),
               ],
             ),
           )
@@ -106,32 +90,33 @@ class UserProfile extends StatelessWidget {
     return Stack(
       alignment: AlignmentDirectional.bottomEnd,
       children: [
-        const CircleAvatar(
-          radius: 65,
+        CircleAvatar(
+          radius: 65.r,
           // backgroundImage: AssetImage('your_image_path_here'),
         ),
         Positioned(
-          bottom: -20,
-          right: -10,
+          bottom: -20.h,
+          right: -10.w,
           child: SizedBox(
-            width: 70,
-            height: 70,
+            width: 70.w,
+            height: 70.h,
             child: Stack(
               alignment: Alignment.center,
               children: [
                 Container(
-                  width: 32,
-                  height: 32,
-                  decoration: const BoxDecoration(
+                  width: 32.w,
+                  height: 32.h,
+                  decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: Colors.white,
                   ),
                 ),
                 IconButton(
                   onPressed: () {},
-                  icon: const Icon(
+                  icon: Icon(
                     Icons.camera_enhance_outlined,
                     color: Colors.black,
+                    size: 24.w,
                   ),
                 ),
               ],
@@ -142,17 +127,16 @@ class UserProfile extends StatelessWidget {
     );
   }
 
-  Widget textWithIcon(IconData icon, String text, Function() onPressed) {
+  Widget textWithIcon(IconData icon, String text, VoidCallback onPressed) {
     return Row(
       children: [
-        Icon(icon),
-        const SizedBox(width: 10),
-        Text(text),
-        const Spacer(),
-        // IconButton(
-        //   onPressed: onPressed,
-        //   icon: Icon(Icons.arrow_forward_ios),
-        // ),
+        Icon(icon, size: 24.w),
+        SizedBox(width: 10.w),
+        Text(
+          text,
+          style: TextStyle(fontSize: 20.w),
+        ),
+        Spacer(),
       ],
     );
   }

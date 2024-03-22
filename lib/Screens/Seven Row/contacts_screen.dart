@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:untitled2/custom%20container/bubble_container.dart';
-import 'package:untitled2/Screens/Seven%20Row/video_call_screem.dart';
+import 'package:untitled2/Screens/Seven%20Row/video_call_screen.dart';
 
 class ContactScreen extends StatefulWidget {
   const ContactScreen({Key? key});
@@ -17,54 +18,19 @@ class _ContactScreenState extends State<ContactScreen> {
     'Block',
     'Settings',
   ];
+
   @override
   Widget build(BuildContext context) {
-    Widget customTileContainer(String title, String subtittle, IconData icon) {
-      return Container(
-        width: Get.width - 48,
-        height: 80,
-        decoration: BoxDecoration(
-          border: Border.all(width: 1, color: Colors.white),
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Row(
-          children: [
-            const SizedBox(width: 16), // Adjust the spacing as needed
-            const CircleAvatar(
-              backgroundColor:
-                  Colors.blue, // You can change the color or use an image
-              radius: 25, // Adjust the size as needed
-              // You can add child or backgroundImage properties to display an image
-            ),
-            const SizedBox(width: 16), // Adjust the spacing as needed
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  title,
-                  style: const TextStyle(fontSize: 16),
-                ),
-                Text(
-                  subtittle,
-                  style: const TextStyle(
-                      fontSize: 12, color: const Color(0xFFD9D9D9)),
-                ),
-              ],
-            ),
-            const Spacer(), // Add space between text and icon
-            Padding(
-              padding: const EdgeInsets.only(right: 16),
-              child: Icon(
-                icon,
-                size: 25,
-              ),
-            ),
-          ],
-        ),
-      );
-    }
-
     return Scaffold(
+      // floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
+      floatingActionButton: Container(
+        margin: EdgeInsets.only(bottom: 90.h, right: 5.w),
+        height: 80.h,
+        width: 80.w,
+        decoration: BoxDecoration(
+            color: const Color.fromARGB(255, 215, 211, 201),
+            shape: BoxShape.circle),
+      ),
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         actions: [
@@ -82,12 +48,11 @@ class _ContactScreenState extends State<ContactScreen> {
                   PopupMenuItem(
                     onTap: () {
                       // Define action for each option
-                      print('Action for $option');
                     },
                     child: Row(
                       children: [
                         Icon(_getIconForOption(option)), // Get icon for option
-                        const SizedBox(width: 5),
+                        SizedBox(width: 5.w),
                         Text(option), // Text for option
                       ],
                     ),
@@ -95,117 +60,148 @@ class _ContactScreenState extends State<ContactScreen> {
               ];
             },
           )
-
-          // IconButton(onPressed: () {}, icon: Icon(Icons.more_vert_outlined))
         ],
         backgroundColor: Colors.transparent,
         elevation: 0,
         bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(90), // Set the preferred height
+          preferredSize: Size.fromHeight(85.h), // Set the preferred height
           child: Container(
-            margin: const EdgeInsets.symmetric(
-                horizontal: 25), // Adjust horizontal margin as needed
-            height: 48,
+            width: 380.w, // Adjust horizontal margin as needed
+            height: 48.h,
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12.r),
             ),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: 'Search Contact',
-                  hintStyle: const TextStyle(
-                    color:
-                        Color.fromARGB(255, 24, 23, 23), // Set hint text color
-                    fontSize: 16,
+                padding: EdgeInsets.symmetric(horizontal: 10.w),
+                child: TextField(
+                  cursorColor: Colors.black,
+                  decoration: InputDecoration(
+                    focusColor: Colors.black,
+                    hoverColor: Colors.black,
+                    fillColor: Colors.amber,
+                    hintText: 'Search Contact',
+                    hintStyle: TextStyle(
+                      color: Color.fromARGB(
+                          255, 24, 23, 23), // Set hint text color
+                      fontSize: 16.sp,
+                    ),
+                    prefixIcon: Icon(Icons.search, color: Colors.grey.shade800),
+                    border: InputBorder.none,
                   ),
-                  prefixIcon: Icon(Icons.search, color: Colors.grey.shade800),
-                  // filled: , // Set to true to enable filling the background
-                  // fillColor:
-                  //     Colors.grey.shade800, // Set a darker background color
-                  border: InputBorder.none,
-                ),
-                style: const TextStyle(
-                    fontSize: 16,
-                    color: Colors.white), // Set text color to white
-              ),
-            ),
+                  style: TextStyle(
+                      fontSize: 16.sp,
+                      color: Colors.black), // Set text color to black
+                )),
           ),
         ),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back),
           color: Colors.white,
           onPressed: () {
             Navigator.of(context).pop();
           },
         ),
       ),
-      body: Container(
-        width: Get.width,
-        height: Get.height,
-        decoration: BoxDecoration(
-          // color: Colors.white,
-          borderRadius: BorderRadius.circular(30),
-        ),
-        child: Stack(
-          children: [
-            Positioned(
-                top: 0,
-                child: Stack(children: [
-                  Container(
-                    width: Get.width,
-                    height: 188,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      gradient: const LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          Colors.black, // Top color - deep purple
-                          Color(0xFF8B4AE4)
-                          // Bottom olor - light deep purple
-                        ],
-                      ),
+      body: Stack(
+        children: [
+          Container(
+              width: 428.w,
+              height: 921.h,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30.r),
+              )),
+          Positioned(
+            top: 0,
+            child: Stack(
+              children: [
+                Container(
+                  width: 428.w,
+                  height: 188.h,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30.r),
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Color.fromRGBO(
+                            78, 28, 147, 1), // Top color - deep purple
+                        Color(0xFF8B4AE4) // Bottom color - light deep purple
+                      ],
                     ),
                   ),
-                  const Positioned(child: BubbleContainer()),
-                ])),
-            //
-            Positioned(
-                left: 24,
-                top: 200,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    customTileContainer("Tepnoty AI", "#.05 min ago",
-                        Icons.video_call_outlined),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    const Text(
-                      "Recents",
-                      style: TextStyle(fontSize: 20),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    customTileContainer(
-                        "Tepnoty AI", "#.05 min ago", Icons.call),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    customTileContainer(
-                        "Tepnoty AI", "#.05 min ago", Icons.call),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    customTileContainer(
-                        "Tepnoty AI", "#.05 min ago", Icons.call),
-                  ],
-                ))
-          ],
-        ),
+                ),
+                Positioned(child: BubbleContainer()),
+              ],
+            ),
+          ),
+          Positioned(
+            left: 24.w,
+            top: 215.h,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                customTileContainer(
+                    "Tepnoty AI", "#.05 min ago", Icons.video_call_outlined),
+                SizedBox(height: 20.h),
+                Text(
+                  "Recents",
+                  style: TextStyle(fontSize: 20.sp),
+                ),
+                SizedBox(height: 20.h),
+                customTileContainer("Tepnoty AI", "#.05 min ago", Icons.call),
+                SizedBox(height: 20.h),
+                customTileContainer("Tepnoty AI", "#.05 min ago", Icons.call),
+                SizedBox(height: 20.h),
+                customTileContainer("Tepnoty AI", "#.05 min ago", Icons.call),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget customTileContainer(String title, String subtittle, IconData icon) {
+    return Container(
+      width: 380.w,
+      height: 80.h,
+      decoration: BoxDecoration(
+        border: Border.all(width: 1.w, color: Colors.white),
+        borderRadius: BorderRadius.circular(12.r),
+      ),
+      child: Row(
+        children: [
+          SizedBox(width: 16.w), // Adjust the spacing as needed
+          CircleAvatar(
+            backgroundColor:
+                Colors.blue, // You can change the color or use an image
+            radius: 25.r, // Adjust the size as needed
+            // You can add child or backgroundImage properties to display an image
+          ),
+          SizedBox(width: 16.w), // Adjust the spacing as needed
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                title,
+                style: TextStyle(fontSize: 16.sp),
+              ),
+              Text(
+                subtittle,
+                style: TextStyle(fontSize: 12.sp, color: Color(0xFFD9D9D9)),
+              ),
+            ],
+          ),
+          Spacer(), // Add space between text and icon
+          Padding(
+            padding: EdgeInsets.only(right: 16.w),
+            child: Icon(
+              icon,
+              size: 25.sp,
+            ),
+          ),
+        ],
       ),
     );
   }

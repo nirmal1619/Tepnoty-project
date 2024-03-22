@@ -1,22 +1,49 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:untitled2/Screens/Eighth%20Row/explore/explore_screen.dart';
-import 'package:untitled2/Screens/Fourth%20Row/home_screen.dart';
-import 'package:untitled2/Screens/Tenth%20Row/setting_screen.dart';
 import 'package:untitled2/constant/colors_value.dart';
+import 'package:untitled2/widgets/custom_drawer.dart';
+import 'package:untitled2/Screens/Fourth%20Row/home_screen.dart';
+
+import '../Screens/Eighth Row/explore/explore_screen.dart';
+import '../Screens/Tenth Row/setting_screen.dart';
+import 'Screen state/navigation_state.dart';
 
 class NavigationBarScreen extends StatelessWidget {
-  const NavigationBarScreen({super.key});
+  NavigationBarScreen({Key? key}) : super(key: key);
+
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  void openDrawer() {
+    _scaffoldKey.currentState?.openDrawer();
+  }
 
   @override
   Widget build(BuildContext context) {
     final getController = Get.put(NavigationController());
+    final screens = [
+      HomeScreen(
+        openDrawerCallback: () {
+          openDrawer();
+        },
+      ),
+      SearchBar(),
+      ExploreScreen(),
+      SettingScreen()
+    ];
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      key: _scaffoldKey, // Assign the GlobalKey to the Scaffold
+      // appBar: AppBar(
+      //
+      //   leading: IconButton(
+      //     icon: Icon(Icons.menu),
+      //     onPressed: openDrawer, // Call the openDrawer function on onPressed
+      //   ),
+      // ),
+      drawer: CustomDrawer(),
       body: Obx(() {
-        final getController = Get.find<NavigationController>();
-        return getController.screens[getController.selectedIndex.value];
+        return screens[getController.selectedIndex.value];
       }),
       bottomNavigationBar: NavigationBarTheme(
         data: NavigationBarThemeData(
@@ -106,9 +133,4 @@ class NavigationBarScreen extends StatelessWidget {
       ),
     );
   }
-}
-
-class NavigationController extends GetxController {
-  RxInt selectedIndex = 0.obs;
-  final screens = [HomeScreen(), SearchBar(), ExploreScreen(), SettingScreen()];
 }

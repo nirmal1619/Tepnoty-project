@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class LittleCurvedContainer extends StatelessWidget {
@@ -10,8 +11,8 @@ class LittleCurvedContainer extends StatelessWidget {
     return ClipPath(
         clipper: MyClipper(),
         child: Container(
-          width: Get.width,
-          height: Get.height,
+          width: 428.w,
+          height: 921.h,
           decoration: const BoxDecoration(
             color: Color(0xFF6E40E0),
           ),
@@ -23,15 +24,15 @@ class MyClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     var path = Path();
-    path.lineTo(0, 105); // Starting point
+    path.lineTo(0, 115.h); // Starting point
     path.quadraticBezierTo(
       0,
-      151,
-      57,
-      151,
+      161.h,
+      57.w,
+      161.h,
     );
-    path.lineTo(size.width - 80, 151);
-    path.quadraticBezierTo(size.width - 35, 151, size.width, 180);
+    path.lineTo(size.width - 110.w, 161.h);
+    path.quadraticBezierTo(size.width - 35.w, 161.h, size.width, 210.h);
     path.lineTo(size.width, 0);
     path.close(); // Close the path to form a shape
     return path;

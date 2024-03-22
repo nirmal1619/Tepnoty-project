@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CircularContainer extends StatelessWidget {
   final double width;
@@ -18,9 +19,9 @@ class CircularContainer extends StatelessWidget {
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         border: Border.all(
-          color: Colors.white.withOpacity(0.5),
-          width: 2,
-        ),
+            color: Colors.white.withOpacity(0.5),
+            width: 4.w,
+            style: BorderStyle.solid),
       ),
     );
   }

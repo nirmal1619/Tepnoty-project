@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomTheme {
+
   static final ThemeData darkMode = ThemeData.dark().copyWith(
     primaryColor: const Color(0xFF8547DA),
     scaffoldBackgroundColor: Colors.black54, // Black with 54% opacity

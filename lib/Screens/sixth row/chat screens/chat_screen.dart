@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:untitled2/constant/colors_value.dart';
 import 'package:untitled2/custom%20container/littleCurvedContainer.dart';
@@ -30,44 +31,42 @@ class ChatScreen extends StatelessWidget {
                   child: Text("Next"),
                 )),
           ),
-          SizedBox(
-              width: 70,
-              child: IconButton(
-                  onPressed: () {
-                    buildPopupMenuButton();
-                  },
-                  icon: Icon(Icons.menu)))
+          Padding(
+            padding: EdgeInsets.only(right: 15.w),
+            child: buildPopupMenuButton(),
+          ),
         ],
       ),
       body: Stack(
         children: [
           const LittleCurvedContainer(),
           Positioned(
-              top: 100,
-              left: 20,
+              top: 110.h, // Dynamic height
+              left: 20.w, // Dynamic width
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      const Text(
+                      Text(
                         "Chat",
                         style: TextStyle(
-                            fontSize: 24, fontWeight: FontWeight.w500),
+                            fontSize: 24.sp, // Dynamic text size
+                            fontWeight: FontWeight.w500),
                       ),
                       SizedBox(
-                        width: Get.width * 0.3,
+                        width: (Get.width * 0.3).w, // Dynamic width
                       ),
                       const Icon(Icons.person_2_rounded)
                     ],
                   ),
-                  const SizedBox(
-                    height: 30,
+                  SizedBox(
+                    height: 25.h, // Dynamic height
                   ),
                   ttileContainer("Manikumar Pokala", "here is it"),
-                  const SizedBox(
-                    height: 10,
+                  SizedBox(
+                    height: 24.h, // Dynamic height
                   ),
                   ttileContainer("Tepnoty AI", "send your message"),
                 ],
@@ -79,14 +78,16 @@ class ChatScreen extends StatelessWidget {
 
   PopupMenuButton buildPopupMenuButton() {
     return PopupMenuButton(
+      position: PopupMenuPosition.under,
+      icon: Icon(Icons.menu),
       itemBuilder: (BuildContext context) {
         return [
           buildPopupMenuItem(Icons.account_circle, 'Profile'),
-          buildPopupMenuItem(Icons.chat, 'Chat'),
-          buildPopupMenuItem(Icons.message, 'Message Request'),
-          buildPopupMenuItem(Icons.archive, 'Archive'),
-          buildPopupMenuItem(Icons.help, 'Help Center'),
-          buildPopupMenuItem(Icons.delete, 'Delete'),
+          buildPopupMenuItem(Icons.chat_outlined, 'Chat'),
+          buildPopupMenuItem(Icons.message_outlined, 'Message Request'),
+          buildPopupMenuItem(Icons.archive_outlined, 'Archive'),
+          buildPopupMenuItem(Icons.help_outlined, 'Help Center'),
+          buildPopupMenuItem(Icons.delete_outline, 'Delete'),
         ];
       },
     );
@@ -95,13 +96,16 @@ class ChatScreen extends StatelessWidget {
   PopupMenuItem buildPopupMenuItem(IconData icon, String text) {
     return PopupMenuItem(
       child: Container(
+        height: 44.h,
+
+        width: 217.w,
         color: Colors.grey[800], // Dark gray container
         padding:
-            EdgeInsets.all(5), // Add padding for space inside the container
+            EdgeInsets.all(5.w), // Add padding for space inside the container
         child: Row(
           children: [
             Icon(icon, color: Colors.white), // Icon
-            SizedBox(width: 5), // SizedBox for spacing
+            SizedBox(width: 5.w), // Dynamic width
             Text(text, style: TextStyle(color: Colors.white)), // String
           ],
         ),
@@ -111,47 +115,49 @@ class ChatScreen extends StatelessWidget {
 
   Container ttileContainer(String tittle, String subtittle) {
     return Container(
-      height: 80,
-      width: Get.width - 48,
+      height: 80.h, // Dynamic height
+      width: 380.w, // Dynamic width
       child: Row(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(horizontal: 20.w), // Dynamic width
             child: Stack(
               children: [
-                const CircleAvatar(
-                  radius: 22,
+                CircleAvatar(
+                  radius: 22.r, // Dynamic radius
                 ),
                 Positioned(
-                    bottom: 4,
+                    bottom: 4.h, // Dynamic height
                     right: 0,
                     child: Container(
-                      width: 8,
-                      height: 8,
+                      width: 8.r, // Dynamic radius
+                      height: 8.r, // Dynamic radius
                       decoration: const BoxDecoration(
                           color: Colors.green, shape: BoxShape.circle),
                     ))
               ],
             ),
           ),
-          const Column(
+          Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 "Manikumar Pokala(You)",
-                style: TextStyle(fontSize: 16),
+                style: TextStyle(fontSize: 16.sp), // Dynamic text size
               ),
               Text(
                 "here is it",
-                style: TextStyle(fontSize: 12, color: Color(0xFFD9D9D9)),
+                style: TextStyle(
+                    fontSize: 12.sp,
+                    color: Color(0xFFD9D9D9)), // Dynamic text size
               ),
             ],
           )
         ],
       ),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12.r), // Dynamic radius
           border: Border.all(width: 1, color: const Color(0xFFD9D9D9))),
     );
   }
@@ -159,15 +165,15 @@ class ChatScreen extends StatelessWidget {
   Stack profileStatus() {
     return Stack(
       children: [
-        const CircleAvatar(
-          radius: 22,
+        CircleAvatar(
+          radius: 22.r, // Dynamic radius
         ),
         Positioned(
-            bottom: 4,
+            bottom: 4.h, // Dynamic height
             right: 0,
             child: Container(
-              width: 8,
-              height: 8,
+              width: 8.r, // Dynamic radius
+              height: 8.r, // Dynamic radius
               decoration: const BoxDecoration(
                   color: Colors.green, shape: BoxShape.circle),
             ))

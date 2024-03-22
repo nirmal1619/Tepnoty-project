@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../constant/colors_value.dart';
 
@@ -11,8 +11,8 @@ class CallingAction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 70,
-      width: Get.width,
+      height: 90.h,
+      width: 428.w,
       decoration: const BoxDecoration(
         color: primaryColorValue,
       ),
@@ -20,26 +20,35 @@ class CallingAction extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           IconButton(
-            icon: const Icon(Icons.volume_up_sharp),
+            icon: Icon(
+              Icons.volume_up_sharp,
+              size: 24.w,
+            ),
             onPressed: () {
               // Add functionality for speaker button
             },
           ),
           IconButton(
-            icon: const Icon(Icons.mic_off_outlined),
+            icon: Icon(
+              Icons.mic_off_outlined,
+              size: 24.w,
+            ),
             onPressed: () {
               // Add functionality for mic button
             },
           ),
           IconButton(
-            icon: const Icon(Icons.videocam),
+            icon: Icon(
+              Icons.videocam,
+              size: 24.w,
+            ),
             onPressed: () {
               // Add functionality for call button
             },
           ),
           Container(
-            height: 48,
-            width: 48,
+            height: 48.h,
+            width: 48.w,
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
               color: Colors.red,
