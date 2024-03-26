@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:untitled2/Screens/First%20Row/on_boarding_screen.dart';
 
@@ -39,17 +40,17 @@ class _TestScreenState extends State<SplashScreen> {
     await Future.delayed(Duration(seconds: 1));
 
     setState(() {
-      _position = Get.height * 0.45;
+      _position = Get.height * 0.45.h;
     });
     await Future.delayed(Duration(seconds: 1));
     setState(() {
-      _position = Get.height * 0.52;
-      _left = -Get.width * 0.5;
+      _position = Get.height * 0.52.h;
+      _left = -Get.width * 0.5.w;
     });
     await Future.delayed(Duration(milliseconds: 1000));
     setState(() {
-      _position = Get.height * 0.46;
-      _left = -Get.width * 0.6;
+      _position = Get.height * 0.42.h;
+      _left = -Get.width * 0.65.w;
       isCompelete = true;
     });
   }
@@ -62,12 +63,12 @@ class _TestScreenState extends State<SplashScreen> {
           alignment: AlignmentDirectional.topCenter,
           children: [
             Container(
-              height: Get.height,
-              width: Get.width,
+              height: 926.h,
+              width: 428.w,
             ),
             Positioned(
-                left: Get.width * 0.35,
-                top: _position + 15,
+                left: Get.width * 0.36.w,
+                top: _position + 10.h,
                 child: isCompelete
                     ? Animate(
                         effects: [
@@ -77,7 +78,7 @@ class _TestScreenState extends State<SplashScreen> {
                         child: Text(
                           appName,
                           style: TextStyle(
-                              fontSize: 38,
+                              fontSize: 38.sp,
                               height: 1.43,
                               letterSpacing: 2.0,
                               fontWeight: FontWeight.w500),
@@ -85,13 +86,13 @@ class _TestScreenState extends State<SplashScreen> {
                       )
                     : Text("")),
             Padding(
-              padding: const EdgeInsets.only(top: 50),
+              padding: EdgeInsets.only(top: 50.h),
               child: ClipOval(
                 child: Container(
                   //300 92
-                  height: 92,
-                  width: 300,
-                  color: _position == Get.height * 0.47
+                  height: 92.h,
+                  width: 300.w,
+                  color: _position == Get.height * 0.47.h
                       ? Color(0XFF100E13)
                       : Colors.transparent, //74 84 94
                 ),
@@ -105,8 +106,8 @@ class _TestScreenState extends State<SplashScreen> {
                 right: _right,
                 child: Container(
                   margin: EdgeInsets.only(),
-                  height: _left == -Get.width * 0.6 ? 84 : 73,
-                  width: _left == -Get.width * 0.6 ? 94 : 84,
+                  height: _left == -Get.width * 0.6 ? 84.h : 73.h,
+                  width: _left == -Get.width * 0.6 ? 94.w : 84.w,
                   child: Image.asset("assets/images/tepnotyLogo.jpeg"),
                 )),
           ],

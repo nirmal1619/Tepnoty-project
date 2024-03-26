@@ -15,7 +15,7 @@ class CustomDrawer extends StatelessWidget {
       child: Material(
         child: Container(
           width: 280.w,
-          height: Get.height,
+          height: 926.h,
           color: isDarkMode ? Colors.black87 : Colors.white,
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.w),
@@ -143,8 +143,12 @@ class CustomDrawer extends StatelessWidget {
                     padding: EdgeInsets.all(16.0),
                     child: Row(
                       children: <Widget>[
-                        Icon(Icons.logout, color: Get.isDarkMode ? Colors.white : Colors.black),
-                        SizedBox(width: 8), // You can adjust the space between the icon and the text here
+                        Icon(Icons.logout,
+                            color:
+                                Get.isDarkMode ? Colors.white : Colors.black),
+                        SizedBox(
+                            width:
+                                8), // You can adjust the space between the icon and the text here
                         Text(
                           'Logout',
                           style: TextStyle(color: Colors.white),
@@ -153,7 +157,6 @@ class CustomDrawer extends StatelessWidget {
                     ),
                   ),
                 ),
-
               ],
             ),
           ),

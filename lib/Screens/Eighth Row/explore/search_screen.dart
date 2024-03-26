@@ -2,11 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:untitled2/constant/colors_value.dart';
 import 'package:untitled2/custom%20container/tile_container.dart';
 import 'package:untitled2/Screens/Eighth%20Row/search_bar.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SearchScreen extends StatelessWidget {
-  const SearchScreen({super.key});
+  const SearchScreen({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,120 +18,147 @@ class SearchScreen extends StatelessWidget {
             onPressed: () {
               Get.to(() => SearchBarScreen());
             },
-            icon: Icon(Icons.search)),
+            icon: Icon(Icons.arrow_back)),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Get.to(() => SearchBarScreen());
+              },
+              icon: Icon(Icons.search))
+        ],
       ),
       body: CustomScrollView(
         slivers: [
           SliverPadding(
-            padding: const EdgeInsets.all(16.0),
+            padding: EdgeInsets.symmetric(horizontal: 14),
             sliver: SliverList(
               delegate: SliverChildListDelegate(
                 [
-                  const Text(
-                    "Explore",
-                    style: TextStyle(fontSize: 24),
-                  ),
-                  const SizedBox(height: 16.0),
-                  SizedBox(
-                    height: 205,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 10,
-                      itemBuilder: (context, index) => const TileContainer(),
+                  Padding(
+                    padding: EdgeInsets.only(left: 4.w, bottom: 4.h),
+                    child: Text(
+                      "Explore",
+                      style: TextStyle(fontSize: 24.sp),
                     ),
                   ),
-                  const SizedBox(height: 16.0),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          "Categories",
-                          style: TextStyle(fontSize: 24),
-                        ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 4.w),
+                    child: SizedBox(
+                      height: 205.h,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: 10,
+                        itemBuilder: (context, index) => TileContainer(),
                       ),
-                      TextButton(
-                        onPressed: () {},
-                        child: const Padding(
-                          padding: EdgeInsets.all(10.0),
+                    ),
+                  ),
+                  SizedBox(height: 16.0.h),
+                  Padding(
+                    padding: EdgeInsets.zero,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            "Categories",
+                            style: TextStyle(fontSize: 24.sp),
+                          ),
+                        ).paddingAll(0),
+                        Spacer(),
+                        TextButton(
+                          onPressed: () {},
                           child: Text(
                             "See more",
-                            style: TextStyle(fontSize: 16),
+                            style: TextStyle(fontSize: 16.sp),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ).paddingZero,
                   ),
-                  const SizedBox(height: 16.0),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  Stack(
                     children: [
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          "Nature",
-                          style:
-                              TextStyle(color: Color(0xFFD9D9D9), fontSize: 12),
-                        ),
+                      Container(
+                        width: double.infinity,
+                        color: Colors.amber,
                       ),
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          "Love",
-                          style:
-                              TextStyle(color: Color(0xFFD9D9D9), fontSize: 12),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          "Emotional",
-                          style:
-                              TextStyle(color: Color(0xFFD9D9D9), fontSize: 12),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          "Funny",
-                          style:
-                              TextStyle(color: Color(0xFFD9D9D9), fontSize: 12),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          "Pets",
-                          style:
-                              TextStyle(color: Color(0xFFD9D9D9), fontSize: 12),
-                        ),
-                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              softWrap: true,
+                              "Nature",
+                              style: TextStyle(
+                                  color: secondaryColorValue,
+                                  fontSize: 15.spMin),
+                            ).marginZero.paddingZero,
+                          ),
+                          TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Love",
+                              style: TextStyle(
+                                  color: Color(0xFFD9D9D9), fontSize: 15.spMin),
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Emotional",
+                              style: TextStyle(
+                                  color: Color(0xFFD9D9D9), fontSize: 15.spMin),
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Funny",
+                              style: TextStyle(
+                                  color: Color(0xFFD9D9D9), fontSize: 15.spMin),
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Pets",
+                              style: TextStyle(
+                                  color: Color(0xFFD9D9D9), fontSize: 15.spMin),
+                            ),
+                          ),
+                        ],
+                      )
                     ],
                   ),
-                  const Divider(
+                  Container(
+                    margin: EdgeInsets.only(bottom: 5),
+                    height: 1,
                     color: Color(0xFFD9D9D9),
+                    width: 428.w,
                   ),
                 ],
               ),
             ),
           ),
           SliverPadding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            padding: EdgeInsets.symmetric(horizontal: 16.0.w),
             sliver: SliverGrid(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                crossAxisSpacing: 9.0,
-                mainAxisSpacing: 9.0,
+                crossAxisSpacing: 9.0.w,
+                mainAxisSpacing: 9.0.h,
               ),
               delegate: SliverChildBuilderDelegate(
                 (context, index) {
                   return Container(
-                    width: 100,
-                    height: 200,
+                    width: 100.w,
+                    height: 200.h,
                     decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(14)),
+                        borderRadius: BorderRadius.circular(14.r)),
                   );
                 },
                 childCount: 8,

@@ -9,11 +9,11 @@ class StackDesign extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Stack(
+    return Stack(
       children: [
         SCurvedConatiner(
-          containerHeight: 301,
-          containerWidth: 428,
+          containerHeight: 301.h,
+          containerWidth: 428.w,
           useChild: false,
         ),
         BubbleContainer(),

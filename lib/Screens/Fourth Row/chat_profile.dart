@@ -4,19 +4,22 @@ import 'package:untitled2/button/adjustable_gradient_button.dart';
 import 'package:untitled2/constant/colors_value.dart';
 import 'package:untitled2/custom%20container/stack_desgine.dart';
 
-class UserProfile extends StatelessWidget {
-  const UserProfile({Key? key});
+class ChatProfile extends StatelessWidget {
+  const ChatProfile({Key? key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        leading: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+        leading: IconButton(
+          onPressed: () {},
+          icon: Icon(Icons.arrow_back),
+        ),
         backgroundColor: Colors.transparent,
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 24),
+            padding: EdgeInsets.only(right: 24.w),
             child: AdjustableGradientButton(
               buttonHeight: 22.h,
               buttonWidth: 90.w,
@@ -36,7 +39,7 @@ class UserProfile extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(height: 25.h),
+                SizedBox(height: 20.h),
                 profileStatus(),
                 SizedBox(height: 20.h),
                 Text(
@@ -48,7 +51,7 @@ class UserProfile extends StatelessWidget {
                   style: TextStyle(fontSize: 16.sp, color: primaryColorValue),
                 ),
                 SizedBox(height: 20.h),
-                textWithIcon(Icons.dark_mode_outlined, "Dark Mode", () {}),
+                textWithIcon(Icons.dark_mode_outlined, "Wallpaper", () {}),
                 SizedBox(height: 10.h),
                 Divider(),
                 SizedBox(height: 10.h),
@@ -60,22 +63,22 @@ class UserProfile extends StatelessWidget {
                 SizedBox(height: 10.h),
                 Divider(),
                 SizedBox(height: 10.h),
-                textWithIcon(Icons.privacy_tip_outlined, "Privacy", () {}),
+                textWithIcon(Icons.groups_2_outlined, "Group Chat", () {}),
+                SizedBox(height: 10.h),
+                Divider(),
+                SizedBox(height: 10.h),
+                textWithIcon(Icons.perm_device_information_rounded,
+                    "Notification", () {}),
+                SizedBox(height: 10.h),
+                Divider(),
+                SizedBox(height: 10.h),
+                textWithIcon(Icons.notifications_outlined,
+                    "Notification and Sound", () {}),
                 SizedBox(height: 10.h),
                 Divider(),
                 SizedBox(height: 10.h),
                 textWithIcon(
-                    Icons.perm_device_information_rounded, "Update", () {}),
-                SizedBox(height: 10.h),
-                Divider(),
-                SizedBox(height: 10.h),
-                textWithIcon(Icons.fingerprint,
-                    "Fingerprint, Face, and Password", () {}),
-                SizedBox(height: 10.h),
-                Divider(),
-                SizedBox(height: 10.h),
-                textWithIcon(
-                    Icons.monetization_on, "Tepnoty Plus Membership", () {}),
+                    Icons.card_membership_outlined, "Chat Theme", () {}),
                 SizedBox(height: 10.h),
                 Divider(),
               ],

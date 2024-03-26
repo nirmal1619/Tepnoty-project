@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:untitled2/custom%20container/littleCurvedContainer.dart';
 import 'package:untitled2/Screens/Tenth%20Row/edit_profile_screen.dart';
@@ -14,22 +15,27 @@ class AllMessageRequest extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         leading: IconButton(
-            onPressed: () {
-              Get.back();
-            },
-            icon: Icon(Icons.arrow_back)),
+          onPressed: () {
+            Get.back();
+          },
+          icon: Icon(Icons.arrow_back),
+        ),
         actions: [
           SizedBox(
             child: TextButton(
-                onPressed: () {},
-                child: TextButton(
-                  onPressed: () {
-                    Get.to(() => EditProfile());
-                  },
-                  child: Text("Next"),
-                )),
+              onPressed: () {},
+              child: TextButton(
+                onPressed: () {
+                  Get.to(() => EditProfile());
+                },
+                child: Text("Next"),
+              ),
+            ),
           ),
-          SizedBox(width: 70, child: buildPopupMenuButton())
+          SizedBox(
+            width: 70.w,
+            child: buildPopupMenuButton(),
+          ),
         ],
       ),
       body: SingleChildScrollView(
@@ -37,73 +43,69 @@ class AllMessageRequest extends StatelessWidget {
           children: [
             const LittleCurvedContainer(),
             Positioned(
-                top: 100,
-                left: 20,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
+              top: 110.h,
+              left: 0.w,
+              right: 0.w,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      SizedBox(
+                        width: 24.w,
+                      ),
+                      Text(
+                        "Chat",
+                        style: TextStyle(
+                          fontSize: 24.sp,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      SizedBox(
+                        width: Get.width * 0.3.w,
+                      ),
+                      const Icon(Icons.person_2_rounded),
+                      Spacer(),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 40.h,
+                  ),
+                  Container(
+                    height: 55.h,
+                    width: 380.w,
+                    child: Row(
                       children: [
-                        const Text(
-                          "Chat",
-                          style: TextStyle(
-                              fontSize: 24, fontWeight: FontWeight.w500),
+                        Spacer(
+                          flex: 2,
                         ),
-                        SizedBox(
-                          width: Get.width * 0.3,
+                        Text("All requests "),
+                        Spacer(),
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(Icons.settings_outlined),
                         ),
-                        const Icon(Icons.person_2_rounded)
                       ],
                     ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    Container(
-                      height: 55,
-                      width: Get.width - 48,
-                      child: Row(
-                        children: [
-                          Spacer(
-                            flex: 2,
-                          ),
-                          Text("All requests "),
-                          Spacer(),
-                          IconButton(
-                              onPressed: () {},
-                              icon: Icon(Icons.settings_outlined))
-                        ],
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12.r),
+                      border: Border.all(
+                        color: Color(0XFFD9D9D9),
                       ),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border.all(color: Color(0XFFD9D9D9))),
                     ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    ttileContainer("Manikumar Pokala", "here is it"),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    ttileContainer("Sital", "send your a message...."),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    ttileContainer("Mukesh", "send your a message...."),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    ttileContainer("Ramesh", "send your a message...."),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    ttileContainer("Ram", "send your a message...."),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    // ttileContainer("Tepnoty AI", "send your message"),
-                  ],
-                ))
+                  ),
+                  SizedBox(
+                    height: 40.h,
+                  ),
+                  ttileContainer("Manikumar Pokala", "here is it"),
+                  ttileContainer("Sital", "send your a message...."),
+                  ttileContainer("Mukesh", "send your a message...."),
+                  ttileContainer("Ramesh", "send your a message...."),
+                  ttileContainer("Ram", "send your a message...."),
+                ],
+              ),
+            ),
           ],
         ),
       ),
@@ -112,17 +114,18 @@ class AllMessageRequest extends StatelessWidget {
 
   PopupMenuButton buildPopupMenuButton() {
     return PopupMenuButton(
+      padding: EdgeInsets.zero,
       icon: Icon(Icons.menu),
       color: Colors.black,
       position: PopupMenuPosition.under,
       itemBuilder: (BuildContext context) {
         return [
-          buildPopupMenuItem(Icons.account_circle, 'Profile'),
-          buildPopupMenuItem(Icons.chat, 'Chat'),
-          buildPopupMenuItem(Icons.message, 'Message Request'),
-          buildPopupMenuItem(Icons.archive, 'Archive'),
-          buildPopupMenuItem(Icons.help, 'Help Center'),
-          buildPopupMenuItem(Icons.delete, 'Delete'),
+          buildPopupMenuItem(Icons.account_circle_outlined, 'Profile'),
+          buildPopupMenuItem(Icons.chat_bubble_outline, 'Chat'),
+          buildPopupMenuItem(Icons.message_outlined, 'Message Request'),
+          buildPopupMenuItem(Icons.archive_outlined, 'Archive'),
+          buildPopupMenuItem(Icons.help_outline, 'Help Center'),
+          buildPopupMenuItem(Icons.delete_outline_outlined, 'Delete'),
         ];
       },
     );
@@ -130,18 +133,23 @@ class AllMessageRequest extends StatelessWidget {
 
   PopupMenuItem buildPopupMenuItem(IconData icon, String text) {
     return PopupMenuItem(
-      padding: EdgeInsets.zero,
+      // padding: EdgeInsets.symmetric(horizontal: 10),
       child: Container(
-        width: double.infinity,
+        width: 217.w,
+
+        height: 44.h,
         color: Colors.grey[900], // Dark gray container
-        padding: EdgeInsets.symmetric(
-            vertical: 5,
-            horizontal: 5), // Add padding for space inside the container
+        // padding: EdgeInsets.symmetric(
+        //     vertical: 5.h,
+        //     horizontal: 15.w), // Add padding for space inside the container
         child: Row(
           children: [
+            SizedBox(width: 5.w),
             Icon(icon, color: Colors.white), // Icon
-            SizedBox(width: 5), // SizedBox for spacing
-            Text(text, style: TextStyle(color: Colors.white)), // String
+            SizedBox(width: 5.w), // SizedBox for spacing
+            Text(text,
+                style:
+                    TextStyle(color: Colors.white, fontSize: 16.sp)), // String
           ],
         ),
       ),
@@ -150,25 +158,26 @@ class AllMessageRequest extends StatelessWidget {
 
   Container ttileContainer(String tittle, String subtittle) {
     return Container(
-      height: 80,
-      width: Get.width - 48,
+      margin: EdgeInsets.only(bottom: 22.h),
+      height: 80.h,
+      width: 380.w,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 20, right: 5),
+            padding: EdgeInsets.only(left: 5.w, right: 0.w),
             child: Stack(
               children: [
-                const CircleAvatar(
-                  radius: 22,
+                CircleAvatar(
+                  radius: 22.r,
                 ),
                 Positioned(
-                  bottom: 4,
-                  right: 0,
+                  bottom: 4.h,
+                  right: 0.w,
                   child: Container(
-                    width: 8,
-                    height: 8,
-                    decoration: const BoxDecoration(
+                    width: 8.w,
+                    height: 8.h,
+                    decoration: BoxDecoration(
                       color: Colors.green,
                       shape: BoxShape.circle,
                     ),
@@ -183,16 +192,16 @@ class AllMessageRequest extends StatelessWidget {
             children: [
               Text(
                 tittle, // Display the title
-                style: TextStyle(fontSize: 16),
+                style: TextStyle(fontSize: 16.sp),
               ),
               Text(
                 subtittle, // Display the subtitle
-                style: TextStyle(fontSize: 12, color: Color(0xFFD9D9D9)),
+                style: TextStyle(fontSize: 12.sp, color: Color(0xFFD9D9D9)),
               ),
             ],
           ),
           SizedBox(
-            width: 30,
+            width: 30.w,
           ),
           Text(
             "3.49",
@@ -201,28 +210,12 @@ class AllMessageRequest extends StatelessWidget {
         ],
       ),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(width: 1, color: const Color(0xFFD9D9D9)),
-      ),
-    );
-  }
-
-  Stack profileStatus() {
-    return Stack(
-      children: [
-        const CircleAvatar(
-          radius: 22,
+        borderRadius: BorderRadius.circular(12.r),
+        border: Border.all(
+          width: 1.w,
+          color: Color(0xFFD9D9D9),
         ),
-        Positioned(
-            bottom: 4,
-            right: 0,
-            child: Container(
-              width: 8,
-              height: 8,
-              decoration: const BoxDecoration(
-                  color: Colors.green, shape: BoxShape.circle),
-            ))
-      ],
+      ),
     );
   }
 }

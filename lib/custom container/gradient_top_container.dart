@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class GradientTopContainer extends StatelessWidget {
@@ -11,13 +12,10 @@ class GradientTopContainer extends StatelessWidget {
     return ClipPath(
       // clipper: MyCustomClipper(),
       child: Container(
-        width: Get.width,
-        height: 307,
-        decoration:  const BoxDecoration(
-
-          boxShadow: [
-
-          ],
+        width: 428.w,
+        height: 307.h,
+        decoration: const BoxDecoration(
+          boxShadow: [],
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.center,
@@ -33,26 +31,34 @@ class GradientTopContainer extends StatelessWidget {
 }
 
 class MyCustomClipper extends CustomClipper<Path> {
+  final double heightFactor;
+  final double radiusFactor;
+  final double widthFactor;
+
+  MyCustomClipper(
+      {this.heightFactor = 1.0,
+      this.radiusFactor = 1.0,
+      this.widthFactor = 1.0});
+
   @override
   Path getClip(Size size) {
     var path = Path();
-    path.lineTo(0, size.height); // Start from the bottom left corner
+    path.lineTo(
+        0, size.height * heightFactor); // Start from the bottom left corner
     path.quadraticBezierTo(
-        0,
-        size.height - 65,
-        65,
-        size.height-65
+      0,
+      size.height * heightFactor - (65 * radiusFactor),
+      65 * widthFactor,
+      size.height * heightFactor - (65 * radiusFactor),
     ); // Define the curve
-    path.lineTo(size.width-65, size.height-65);
+    path.lineTo(size.width - (65 * widthFactor),
+        size.height * heightFactor - (65 * radiusFactor));
     path.quadraticBezierTo(
         size.width,
-        size.height - 65,
+        size.height * heightFactor - (65 * radiusFactor),
         size.width,
-        size.height
-    );
+        size.height * heightFactor);
     path.lineTo(size.width, 0);
-    //
-    // Line to the top right corner
     path.close(); // Close the path
     return path;
   }
@@ -62,5 +68,3 @@ class MyCustomClipper extends CustomClipper<Path> {
     return false;
   }
 }
-
-

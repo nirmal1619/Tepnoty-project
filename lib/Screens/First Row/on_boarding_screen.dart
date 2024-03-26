@@ -1,10 +1,7 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_instance/get_instance.dart';
-import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:untitled2/Screen%20state/onboarding_state.dart';
 import 'package:untitled2/Screens/Second%20Row/create_account.dart';
 import 'package:untitled2/button/backward_button.dart';
@@ -12,17 +9,19 @@ import 'package:untitled2/button/forward_button.dart';
 import 'package:untitled2/constant/colors_value.dart';
 
 class OnBoardingScreen extends StatelessWidget {
-  OnBoardingScreen({super.key});
+  OnBoardingScreen({Key? key});
 
   final String text =
-      "It is the collection of data that is used to train the chatbot.Train the chatbot in theway you want it to respond to people";
+      "It is the collection of data that is used to train the chatbot. Train the chatbot in the way you want it to respond to people";
 
-  final OnboardingState onbordingState = Get.put(OnboardingState());
+  final OnboardingState onboardingState = Get.put(OnboardingState());
 
   @override
   Widget build(BuildContext context) {
-    RxInt currentPage = onbordingState.onboardingPage;
+    RxInt currentPage = onboardingState.onboardingPage;
+
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
         actions: [
           TextButton(
@@ -34,42 +33,81 @@ class OnBoardingScreen extends StatelessWidget {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.all(24.0),
+        padding: EdgeInsets.only(top: 235.h), // Use .w for width
         child: SingleChildScrollView(
           child: Column(
             children: [
               Obx(() => middleContainer(currentPage.toInt())),
-              Obx(
-                () => Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    currentPage > 0
-                        ? GestureDetector(
-                            onTap: () {
-                              onbordingState.lastPage();
-                            },
-                            child: BackwardButton(),
-                          )
-                        : SizedBox(
-                            height: 80,
-                            width: 80,
-                          ),
-                    GestureDetector(
-                      onTap: () {
-                        onbordingState.nextPage();
-                        if (currentPage == 2) {
-                          Timer(Duration(seconds: 3), () {
-                            Get.to(CreateAccountScreen());
-                          });
-                        }
-                      },
-                      child: ForwardButton(),
+              Obx(() => Column(children: [
+                SizedBox(
+                  height: 96.h, // Use .h for height
+                ),
+                Text(
+                  onboardingState.onBoardingHeaderText[currentPage.value],
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: 24.sp,
+                      fontWeight: FontWeight.w700), // Use .sp for font size
+                ),
+                SizedBox(
+                  height: 20.h, // Use .h for height
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 14.w), // Use .w for width
+                  child: Text(
+                    onboardingState
+                        .onBoardingSubText[onboardingState.onboardingPage.toInt()],
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 16.sp, // Use .sp for font size
+                      color: Color(0xFFD9D9D9),
                     ),
-                  ],
+                  ),
+                )
+              ],),
+
+              ),
+             Obx(()=>
+              SizedBox(
+
+                 height:  onboardingState.onboardingPage.value==1? 24.h: 0,
+
+               ),
+             ),
+              Padding(
+                padding:  EdgeInsets.only(  top:   48.h,left: 24.w,right: 24.w),
+                child: Obx(
+                  () => Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      currentPage > 0
+                          ? GestureDetector(
+                              onTap: () {
+                                onboardingState.lastPage();
+                              },
+                              child: BackwardButton(),
+                            )
+                          : SizedBox(
+                              height: 80.h, // Use .h for height
+                              width: 80.w, // Use .w for width
+                            ),
+                      GestureDetector(
+                        onTap: () {
+                          onboardingState.nextPage();
+                          if (currentPage.value == 2) {
+                            Timer(Duration(seconds: 3), () {
+                              Get.to(CreateAccountScreen());
+                            });
+                          }
+                        },
+                        child: ForwardButton(),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              const SizedBox(
-                height: 10,
+              SizedBox(
+                height: 10.h, // Use .h for height
               ),
               Obx(() => pageIndicatorContainer(currentPage))
             ],
@@ -81,16 +119,16 @@ class OnBoardingScreen extends StatelessWidget {
 
   Container pageIndicatorContainer(RxInt index) {
     return Container(
-      height: 10,
+      height: 10.h, // Use .h for height
       color: Colors.transparent,
       child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
         index == 0 ? slideContainer() : dotContainer(),
-        const SizedBox(
-          width: 5,
+        SizedBox(
+          width: 5.w, // Use .w for width
         ),
         index.toInt() == 1 ? slideContainer() : dotContainer(),
-        const SizedBox(
-          width: 5,
+        SizedBox(
+          width: 5.w, // Use .w for width
         ),
         index.toInt() == 2 ? slideContainer() : dotContainer(),
       ]),
@@ -99,64 +137,42 @@ class OnBoardingScreen extends StatelessWidget {
 
   Container dotContainer() {
     return Container(
-      height: 8,
-      width: 8,
+      height: 8.h, // Use .h for height
+      width: 8.w, // Use .w for width
       decoration: BoxDecoration(
         color: Colors.grey.shade200,
-        borderRadius: BorderRadius.circular(4),
+        borderRadius: BorderRadius.circular(4.r), // Use .r for radius
       ),
     );
   }
 
   Container slideContainer() {
     return Container(
-      height: 8,
-      width: 30,
+      height: 8.h, // Use .h for height
+      width: 30.w, // Use .w for width
       decoration: BoxDecoration(
         color: secondaryColorValue,
-        borderRadius: BorderRadius.circular(4),
+        borderRadius: BorderRadius.circular(4.r), // Use .r for radius
       ),
     );
   }
 
   SizedBox middleContainer(int index) {
     return SizedBox(
-      height: 550,
-      width: Get.width - 50,
+      height: 260.h, // Use .h for height
+      width: 380.w, // Use .w for width
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           SizedBox(
-            width: Get.width - 48,
-            height: 400,
+            width: 380.w, // Use .w for width
+            height: 260.h, // Use .h for height
             child: Image.asset(
-              onbordingState.onboardingStateImages[index],
-              fit: BoxFit.cover,
+              onboardingState.onboardingStateImages[index],
+              fit: BoxFit.contain,
             ),
           ),
-          const SizedBox(
-            height: 10,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              onbordingState.onBoardingHeaderText[index],
-              textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 14),
-            child: Text(
-              onbordingState
-                  .onBoardingSubText[onbordingState.onboardingPage.toInt()],
-              textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 16, color: Color(0xFFD9D9D9)),
-            ),
-          )
+
         ],
       ),
     );

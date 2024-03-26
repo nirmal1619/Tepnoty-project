@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:untitled2/custom%20container/stack_desgine.dart';
 import 'package:untitled2/Screens/Thired%20Row/face_authentication.dart';
 
 class Fingerprint extends StatelessWidget {
-  const Fingerprint({super.key});
+  const Fingerprint({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,61 +15,63 @@ class Fingerprint extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         leading: IconButton(
-            onPressed: () {
-              Get.back();
-            },
-            icon: Icon(Icons.arrow_back)),
+          onPressed: () {
+            Get.back();
+          },
+          icon: Icon(Icons.arrow_back),
+        ),
         actions: [
           TextButton(
-              onPressed: () {},
-              child: TextButton(
-                onPressed: () {
-                  Get.to(FaceAuthentication());
-                },
-                child: Text("Next"),
-              ))
+            onPressed: () {},
+            child: TextButton(
+              onPressed: () {
+                Get.to(FaceAuthentication());
+              },
+              child: Text("Next"),
+            ),
+          )
         ],
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const StackDesign(),
-          const SizedBox(height: 20),
-          const Icon(
+          SizedBox(height: 106.h), // Use .h for height
+          Icon(
             Icons.fingerprint,
-            size: 112,
+            size: 112.w, // Use .w for width
             color: Colors.white,
           ),
-          const SizedBox(height: 60),
-          const Text(
+          SizedBox(height: 65.h), // Use .h for height
+          Text(
             "Login in with Touch Screen",
             style: TextStyle(
-              fontSize: 24,
+              fontSize: 24.sp, // Use .sp for font size
               color: Colors.white,
             ),
           ),
-          const SizedBox(height: 10),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 80),
+          SizedBox(height: 10.h), // Use .h for height
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 80.w), // Use .w for width
             child: Text(
-              textAlign: TextAlign.center,
               "Place your finger on the home button to login",
+              textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 14,
+                fontSize: 16.sp, // Use .sp for font size
                 color: Color(0xFFD9D9D9),
               ),
             ),
           ),
-          const Spacer(),
+          Spacer(),
           Center(
             child: TextButton(
               onPressed: () {
                 // Add your logic for login with password
               },
-              child: const Text(
+              child: Text(
                 "Login with Password",
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 16.sp, // Use .sp for font size
                   color: Colors.white,
                 ),
               ),

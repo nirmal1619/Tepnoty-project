@@ -2,8 +2,10 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:untitled2/custom%20Icons/mic_icon.dart';
 import 'package:untitled2/custom%20container/littleCurvedContainer.dart';
 import 'package:untitled2/Screens/Seven%20Row/contacts_screen.dart';
 
@@ -54,7 +56,7 @@ class _TestScreenState extends State<ChatingScreen> {
               child: Container(
                 height: 44,
                 margin: EdgeInsets.symmetric(horizontal: 20),
-                width: Get.height - 50,
+                width: 926.h - 50.h,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(25),
                   border: Border.all(color: Colors.white), // White border
@@ -373,7 +375,7 @@ class _TestScreenState extends State<ChatingScreen> {
           insetPadding: EdgeInsets.symmetric(horizontal: 0, vertical: 60),
           content: Container(
             height: 200,
-            width: Get.width - 40,
+            width: 380,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(color: Colors.white)),
@@ -481,30 +483,4 @@ class TextBox extends StatelessWidget {
 }
 
 // Class for the mic icon widget
-class MicIconWidget extends StatelessWidget {
-  const MicIconWidget({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        ClipOval(
-          child: Container(
-            //23
-            width: 23,
-            height: 25,
-            color: Colors.white,
-          ),
-        ),
-        Positioned(
-          child: Icon(
-            Icons.mic_none_rounded,
-            size: 20,
-            color: Colors.black,
-          ),
-        ),
-      ],
-    );
-  }
-}

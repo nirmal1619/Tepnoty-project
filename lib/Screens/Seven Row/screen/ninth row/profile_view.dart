@@ -1,18 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:untitled2/Screen%20state/navigation_state.dart';
 import 'package:untitled2/custom%20container/bottom_sheet_container.dart';
 import 'package:untitled2/custom%20container/stack_desgine.dart';
 import 'package:untitled2/Screens/sixth%20row/chat%20screens/message_request.dart';
 
 class ProfileViewScreen extends StatefulWidget {
-  const ProfileViewScreen({Key? key}) : super(key: key);
+  final VoidCallback? openBottomSheet;
+  const ProfileViewScreen({Key? key, this.openBottomSheet}) : super(key: key);
 
   @override
   State<ProfileViewScreen> createState() => _ExploreScreen3State();
 }
 
 class _ExploreScreen3State extends State<ProfileViewScreen> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      if (navigationController.selectedIndex == 2) {
+        widget.openBottomSheet!();
+      }
+    });
+  }
+
+  final navigationController = Get.put(NavigationController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,28 +36,24 @@ class _ExploreScreen3State extends State<ProfileViewScreen> {
         forceMaterialTransparency: true,
         elevation: 0,
         backgroundColor: Colors.transparent,
-        leading:
-            IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back)),
+        leading: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
         actions: [
           IconButton(
             onPressed: () {
               Get.to(() => MessageRequest());
             },
-            icon: const Icon(Icons.arrow_forward),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.add),
+            icon: Icon(Icons.arrow_forward),
           ),
           IconButton(
             onPressed: () {
-              Get.bottomSheet(BottomSheetContainer(
-                onAdPress: () {},
-                onPostPress: () {},
-                onRealPress: () {},
-              ));
+              navigationController.selectedIndex.value = 2;
+              widget.openBottomSheet!();
             },
-            icon: const Icon(Icons.menu),
+            icon: Icon(Icons.add),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.menu),
           ),
         ],
       ),
@@ -51,68 +61,56 @@ class _ExploreScreen3State extends State<ProfileViewScreen> {
         children: [
           Stack(
             children: [
-              const StackDesign2(),
+              StackDesign2(),
               Positioned(
-                top: 120,
-                left: 0,
-                right: 0,
+                top: 120.h,
+                left: 0.w,
+                right: 0.w,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(),
+                  padding: EdgeInsets.symmetric(),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20.w),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            CircleAvatar(radius: 36),
+                            CircleAvatar(radius: 36.r),
                             ProfileTile(),
                           ],
                         ),
                       ),
-                      const SizedBox(
-                        height: 50,
-                      ),
+                      SizedBox(height: 50.h),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        padding: EdgeInsets.symmetric(horizontal: 20.w),
                         child: AboutPart(),
                       ),
-                      // Column(
-                      //   crossAxisAlignment: CrossAxisAlignment.start,
-                      //   children: [
-
-                      //   ],
-                      // ),
                       DefaultTabController(
                         length: 3,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const TabBar(
-                              indicatorWeight: 2,
+                            TabBar(
+                              indicatorWeight: 2.w,
                               indicatorSize: TabBarIndicatorSize.tab,
                               tabs: [
                                 Tab(
-                                  icon: Icon(Icons
-                                      .photo_library_outlined), // Icon for Posts tab
+                                  icon: Icon(Icons.photo_library_outlined),
                                 ),
                                 Tab(
-                                  icon: Icon(Icons
-                                      .video_library), // Icon for Reels tab
+                                  icon: Icon(Icons.video_library),
                                 ),
                                 Tab(
-                                  icon: Icon(
-                                      Icons.bookmark), // Icon for Saved tab
+                                  icon: Icon(Icons.bookmark),
                                 ),
                               ],
                             ),
                             SingleChildScrollView(
                               child: SizedBox(
-                                height:
-                                    Get.height - 340, // Adjust height as needed
+                                height: (Get.height - 340.h),
                                 child: TabBarView(
-                                  physics: const PageScrollPhysics(),
+                                  physics: PageScrollPhysics(),
                                   children: [
                                     buildScrollView(),
                                     buildScrollView(),
@@ -137,25 +135,26 @@ class _ExploreScreen3State extends State<ProfileViewScreen> {
 
   SizedBox buildScrollView() {
     return SizedBox(
-      width: Get.width,
-      height: Get.height,
+      width: 921.w,
+      height: 428.h,
       child: GridView.builder(
-        padding: const EdgeInsets.only(top: 2),
-        physics: const PageScrollPhysics(),
-        gridDelegate:
-            const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+        padding: EdgeInsets.only(top: 2.h, bottom: 80.h),
+        physics: PageScrollPhysics(),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+        ),
         itemCount: 20,
         itemBuilder: (context, index) => Container(
-          width: 215,
-          height: 154,
+          width: 215.w,
+          height: 154.h,
           decoration: BoxDecoration(
-              color: Colors.black,
-              shape: BoxShape.rectangle,
-              // borderRadius: BorderRadius.circular(12),
-              border: Border.all(
-                width: 2,
-                color: Colors.grey.shade400,
-              )),
+            color: Colors.black,
+            shape: BoxShape.rectangle,
+            border: Border.all(
+              width: 2.w,
+              color: Colors.grey.shade400,
+            ),
+          ),
         ),
       ),
     );
@@ -163,69 +162,71 @@ class _ExploreScreen3State extends State<ProfileViewScreen> {
 }
 
 class ProfileTile extends StatelessWidget {
-  const ProfileTile({
-    super.key,
-  });
+  const ProfileTile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const SizedBox(
-          height: 10,
-        ),
-        const Row(
+        SizedBox(height: 10.h),
+        Row(
           children: [
-            SizedBox(width: 20),
+            SizedBox(width: 20.w),
             Text(
               "ManiKumar Pokala",
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 20.sp,
                 fontWeight: FontWeight.w700,
                 fontFamily: "Lexend",
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 5, left: 5),
+              padding: EdgeInsets.only(top: 5.h, left: 5.w),
               child: Text(
                 "He/Him",
                 style: TextStyle(
-                  fontSize: 12,
+                  fontSize: 12.sp,
                 ),
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(left: 5),
+              padding: EdgeInsets.only(left: 5.w),
               child: StarEditIcon(),
             )
           ],
         ),
         Row(
           children: [
-            const Text("designsby_Mani"),
             Padding(
-              padding: const EdgeInsets.only(left: 10, top: 0),
+              padding: EdgeInsets.only(left: 8.w),
+              child: Text("designsby_Mani"),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 10.w, top: 0),
               child: Container(
-                height: 16,
-                width: 110,
+                height: 16.h,
+                width: 110.w,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(12.r),
                   border: Border.all(
-                    color: const Color.fromRGBO(217, 217, 217, 1),
+                    color: Color.fromRGBO(217, 217, 217, 1),
                   ),
-                  gradient: const LinearGradient(colors: [
-                    Color.fromRGBO(139, 74, 228, 1),
-                    Color.fromRGBO(206, 126, 243, 1)
-                  ]),
+                  gradient: LinearGradient(
+                    colors: [
+                      Color.fromRGBO(139, 74, 228, 1),
+                      Color.fromRGBO(206, 126, 243, 1)
+                    ],
+                  ),
                 ),
-                child: const Center(
+                child: Center(
                   child: Text(
                     "Request To Message",
                     style: TextStyle(
-                        fontSize: 8,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
+                      fontSize: 8.sp,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
@@ -240,22 +241,22 @@ class ProfileTile extends StatelessWidget {
 class AboutPart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           'UI/UX Designer',
           style: TextStyle(
-            fontSize: 12,
+            fontSize: 12.sp,
           ),
         ),
-        SizedBox(height: 10),
+        SizedBox(height: 10.h),
         Padding(
-          padding: EdgeInsets.only(right: 20),
+          padding: EdgeInsets.only(right: 20.w),
           child: Text(
             'Find joy in every moment, like colors in a painting. Life\'s beauty is in its simple details.',
             style: TextStyle(
-              fontSize: 12,
+              fontSize: 12.sp,
             ),
           ),
         ),
@@ -265,52 +266,52 @@ class AboutPart extends StatelessWidget {
 }
 
 class StarEditIcon extends StatelessWidget {
-  const StarEditIcon({
-    Key? key,
-  }) : super(key: key);
+  const StarEditIcon({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         Container(
-          height: 22,
-          width: 22,
+          height: 22.h,
+          width: 22.w,
           decoration: BoxDecoration(
             border: Border.all(
-              width: 2,
+              width: 2.w,
               color: Colors.white,
             ),
-            gradient: const LinearGradient(
+            gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
                 Color(0xFF8B4AE4),
-                Color(0xFFCE7EF3),
+                Color(0xFFCE7EF),
               ],
             ),
             shape: BoxShape.circle,
           ),
         ),
-        const Positioned(
-            top: 5,
-            right: 10,
-            child: Icon(
-              Icons.pentagon_outlined,
-              weight: 15,
-              opticalSize: 15,
-              size: 7,
-              color: Color(0xFFFFE713),
-            )),
-        const Positioned(
-            top: 10,
-            bottom: 15,
-            right: 4,
-            child: Icon(
-              Icons.mode_edit_outline_outlined,
-              size: 7,
-              color: Color(0xFFFFE713),
-            )),
+        Positioned(
+          top: 5.h,
+          right: 10.w,
+          child: Icon(
+            Icons.pentagon_outlined,
+            weight: 15.sp,
+            opticalSize: 15.sp,
+            size: 7.sp,
+            color: Color(0xFFFFE713),
+          ),
+        ),
+        Positioned(
+          top: 10.h,
+          bottom: 15.h,
+          right: 4.w,
+          child: Icon(
+            Icons.mode_edit_outline_outlined,
+            size: 7.sp,
+            color: Color(0xFFFFE713),
+          ),
+        ),
       ],
     );
   }

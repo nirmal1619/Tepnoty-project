@@ -27,12 +27,12 @@ class MyClipper extends CustomClipper<Path> {
     path.lineTo(0, 160.47); // Starting point
     path.quadraticBezierTo(
       32.5.w,
-      235.48.h,
+      245.48.h,
       181.62.w,
-      235.48.h,
+      245.48.h,
     );
-    path.lineTo(249.69.w, 235.48.h);
-    path.quadraticBezierTo(380.w, 235.48.h, size.width, 301.h);
+    path.lineTo(265.69.w, 245.48.h);
+    path.quadraticBezierTo(380.w, 245.48.h, size.width, 311.h);
     path.lineTo(size.width, 0);
     path.close(); // Close the path to form a shape
     return path;

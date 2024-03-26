@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:untitled2/custom%20container/calling_action._container.dart';
 import 'package:untitled2/custom%20container/s_curved_container.dart';
@@ -28,22 +29,21 @@ class VoiceCallScreenFirst extends StatelessWidget {
           Stack(
             children: [
               SCurvedConatiner(
-                containerHeight: 301,
-                containerWidth: Get.width,
+                containerHeight: 301.h,
+                containerWidth: 428.w,
                 useChild: false,
               ),
               Center(
                 child: Container(
-                  margin: const EdgeInsets.only(top: 114),
-                  height: 232,
-                  width: 232,
+                  margin: EdgeInsets.only(top: 130.h),
+                  height: 232.h,
+                  width: 232.w,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    border:
-                        Border.all(color: const Color(0xFFB450FF), width: 4),
+                    border: Border.all(color: Color(0xFFB450FF), width: 4.w),
                   ),
-                  child: const CircleAvatar(
-                    radius: 116,
+                  child: CircleAvatar(
+                    radius: 116.r,
                     backgroundColor: Colors.transparent,
                     // backgroundImage: AssetImage(""),
                   ),
@@ -51,18 +51,18 @@ class VoiceCallScreenFirst extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 150),
-          const Text(
+          SizedBox(height: 150.h),
+          Text(
             "Manikumar Pokala",
-            style: TextStyle(fontSize: 24),
+            style: TextStyle(fontSize: 24.sp),
           ),
-          const SizedBox(height: 10),
-          const Text(
+          SizedBox(height: 10.h),
+          Text(
             "3:05",
-            style: TextStyle(fontSize: 14),
+            style: TextStyle(fontSize: 14.sp),
           ),
-          const Spacer(),
-          const CallingAction(),
+          Spacer(),
+          CallingAction(),
         ],
       ),
     );

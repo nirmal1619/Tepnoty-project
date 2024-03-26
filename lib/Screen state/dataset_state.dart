@@ -19,7 +19,7 @@ class DataSetState extends GetxController {
   RxList<String> get headerText => [
         "What is a Dataset",
         "Upload your Dataset",
-        "We have received your Dataset . Thankyou",
+        "We have received your Dataset.Thankyou",
         "Feedback "
       ].obs;
 

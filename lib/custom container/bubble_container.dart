@@ -13,26 +13,26 @@ class BubbleContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: SizedBox(
-        width: Get.width,
+        width: 428.w,
         height: 170.h,
         child: Stack(children: [
           Positioned(
-            left: -181,
-            top: -368,
+            left: -181.w,
+            top: -368.h,
             child: Container(
-                height: 472,
-                width: 518,
+                height: 472.h,
+                width: 518.w,
                 decoration: BoxDecoration(
                   color: const Color(0XFFB450FF).withOpacity(0.2),
                   shape: BoxShape.circle,
                 )),
           ),
           Positioned(
-              left: 235,
-              top: -226,
+              left: 235.w,
+              top: -226.h,
               child: Container(
-                height: 398,
-                width: 398,
+                height: 398.h,
+                width: 398.w,
                 decoration: BoxDecoration(
                   color: const Color(0XFFB450FF).withOpacity(0.2),
                   shape: BoxShape.circle,

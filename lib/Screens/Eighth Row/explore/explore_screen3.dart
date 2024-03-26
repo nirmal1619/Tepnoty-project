@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:untitled2/custom%20container/s2_container.dart';
 import 'package:untitled2/Screens/Eighth%20Row/explore/search_screen.dart';
+import 'package:untitled2/custom%20container/stack_desgine.dart';
 
 class ExploreScreen3 extends StatefulWidget {
   const ExploreScreen3({Key? key}) : super(key: key);
@@ -16,6 +18,24 @@ class _ExploreScreen3State extends State<ExploreScreen3> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
+        leadingWidth: 400.w,
+        leading: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SizedBox(
+              width: 24.w,
+            ),
+            Text(
+              "Manikumar Pokala",
+              style: TextStyle(fontSize: 24.sp),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.arrow_drop_down),
+              iconSize: 40.sp,
+            )
+          ],
+        ),
         actions: [
           IconButton(
               onPressed: () {
@@ -29,108 +49,105 @@ class _ExploreScreen3State extends State<ExploreScreen3> {
         children: [
           Stack(
             children: [
-              const S2CurvedConatiner(),
+              StackDesign2(),
               Positioned(
-                top: 50,
+                top: 80.h,
                 left: 0,
                 right: 0,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  padding: EdgeInsets.symmetric(horizontal: 0.w),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          const Text(
-                            textAlign: TextAlign.center,
-                            "Manikumar Pokala",
-                            style: TextStyle(fontSize: 24),
-                          ),
-                          IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.arrow_drop_down),
-                            iconSize: 40,
-                          )
-                        ],
+                      SizedBox(height: 20.h),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 24.w),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(top: 25.h),
+                              child: CircleAvatar(radius: 36.r),
+                            ),
+                            SizedBox(width: 0.w),
+                            Column(
+                              children: [
+                                Text(
+                                  "32",
+                                  style: TextStyle(
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                                Text(
+                                  "Posts",
+                                  style: TextStyle(
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                Text(
+                                  "326",
+                                  style: TextStyle(
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                                Text(
+                                  "Followers",
+                                  style: TextStyle(
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                Text(
+                                  "325",
+                                  style: TextStyle(
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                                Text(
+                                  "Following",
+                                  style: TextStyle(
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
                       ),
-                      const SizedBox(height: 10),
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          CircleAvatar(radius: 36),
-                          SizedBox(width: 30),
-                          Column(
-                            children: [
-                              Text(
-                                "32",
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w500),
-                              ),
-                              Text(
-                                "Posts",
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w500),
-                              ),
-                            ],
-                          ),
-                          SizedBox(width: 30),
-                          Column(
-                            children: [
-                              Text(
-                                "326",
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w500),
-                              ),
-                              Text(
-                                "Followers",
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w500),
-                              ),
-                            ],
-                          ),
-                          SizedBox(width: 30),
-                          Column(
-                            children: [
-                              Text(
-                                "325",
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w500),
-                              ),
-                              Text(
-                                "Following",
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w500),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                      const SizedBox(height: 55),
+                      SizedBox(height: 75.h),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                        // mainAxisAlignment: MainAxisAlignment.start,
                         children: [
+                          SizedBox(width: 24.w),
                           containerButton("Message Request", () {}),
-                          const SizedBox(width: 20),
+                          SizedBox(width: 24.w),
                           containerButton("Share Profile", () {})
                         ],
                       ),
-                      const SizedBox(height: 10),
+                      SizedBox(height: 10.h),
                       SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Row(
                           children: [
                             SizedBox(
-                              width: Get.width,
-                              height: 80,
+                              width: 428.w,
+                              height: 80.h,
                               child: ListView.builder(
                                 scrollDirection: Axis.horizontal,
                                 itemCount: 10,
                                 itemBuilder: (context, index) => Container(
-                                  margin: const EdgeInsets.only(right: 10),
-                                  width: 69,
-                                  height: 69,
-                                  decoration: const BoxDecoration(
+                                  margin: EdgeInsets.only(
+                                      left: 25.w, right: 12.w, bottom: 0.h),
+                                  width: 69.w,
+                                  height: 69.h,
+                                  decoration: BoxDecoration(
                                       color: Colors.white,
                                       shape: BoxShape.circle),
                                 ),
@@ -139,41 +156,45 @@ class _ExploreScreen3State extends State<ExploreScreen3> {
                           ],
                         ),
                       ),
-
+                      SizedBox(
+                        height: 5,
+                      ),
                       // Add a Divider
                       SingleChildScrollView(
+                        physics: PageScrollPhysics(),
                         scrollDirection: Axis.vertical,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Divider(
+                            Divider(
                               color: Colors.grey,
-                              height: 1,
+                              height: 1.h,
                             ),
                             // Container(
-                            //   height: 2,
+                            //   height: 2.h,
                             //   color: Colors.grey,
                             // ),
+
                             SizedBox(
-                              width: Get.width,
-                              height: Get.height,
+                              width: 428.w,
+                              height: 926.h,
                               child: GridView.builder(
-                                padding: EdgeInsets.only(top: 2),
-                                physics: const PageScrollPhysics(),
+                                padding: EdgeInsets.only(top: 0.h, left: 0),
+                                physics: PageScrollPhysics(),
                                 gridDelegate:
-                                    const SliverGridDelegateWithFixedCrossAxisCount(
+                                    SliverGridDelegateWithFixedCrossAxisCount(
                                         crossAxisCount: 2),
                                 itemCount: 10,
                                 itemBuilder: (context, index) => Container(
-                                  width: 215,
-                                  height: 154,
+                                  // width: 215.w,
+                                  height: 154.h,
                                   decoration: BoxDecoration(
                                       color: Colors.black,
                                       shape: BoxShape.rectangle,
                                       // borderRadius: BorderRadius.circular(12),
                                       border: Border.all(
-                                        width: 2,
+                                        width: 1.w,
                                         color: Colors.grey.shade400,
                                       )),
                                 ),
@@ -223,16 +244,17 @@ class _ExploreScreen3State extends State<ExploreScreen3> {
         voidCallback();
       },
       child: Container(
-        height: 35,
-        width: 133,
+        height: 35.h,
+        width: 135.w,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12.r),
           border: Border.all(color: const Color(0xFFD9D9D9)),
         ),
         child: Center(
           child: Text(
+            textAlign: TextAlign.center,
             buttonName,
-            style: const TextStyle(color: Color(0xFFD9D9D9), fontSize: 14),
+            style: TextStyle(color: Color(0xFFD9D9D9), fontSize: 14.spMin),
           ),
         ),
       ),

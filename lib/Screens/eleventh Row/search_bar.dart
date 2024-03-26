@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:untitled2/Screens/Seven%20Row/screen/ninth%20row/profile_view.dart';
 import 'package:untitled2/Screens/ninth%20row/profile_view.dart';
 
 class SearchBarScreen extends StatefulWidget {

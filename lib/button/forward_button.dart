@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'dart:math' as math;
 
 import 'package:untitled2/constant/colors_value.dart';
@@ -15,46 +16,46 @@ class ForwardButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        child: Stack(
-      children: [
-        Container(
-          width: 80,
-          height: 80,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(color: Colors.white),
-          ),
-          child: Container(
-            margin: const EdgeInsets.all(10),
-            width: 59,
-            height: 59,
-            decoration: const BoxDecoration(
+      width: 80.w, // Use .w for width
+      height: 80.h, // Use .h for height
+      child: Stack(
+        children: [
+          Container(
+            width: 80.w,
+            height: 80.h,
+            decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: secondaryColorValue,
+              border: Border.all(color: Colors.white),
             ),
-            child: const Center(
-              child: Icon(
-                Icons.arrow_forward_ios,
-                color: Colors.white,
+            child: Container(
+              margin: EdgeInsets.all(10.w), // Use .w for width
+              width: 59.w,
+              height: 59.h,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: secondaryColorValue,
+              ),
+              child: const Center(
+                child: Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),
-        ),
-        CustomPaint(
-          painter: CustomPainter1(),
-          child: Container(
-            height: 80,
-            width: 80,
+          CustomPaint(
+            painter: CustomPainter1(),
+            child: Container(
+              height: 80.h,
+              width: 80.w,
+            ),
           ),
-        ),
-      ],
-    ));
+        ],
+      ),
+    );
   }
 }
 
-// import 'package:flutter/material.dart';
-
-// import 'package:flutter/material.dart';
 class CustomPainter1 extends CustomPainter {
   final double visibleFraction;
 
@@ -64,7 +65,7 @@ class CustomPainter1 extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
       ..color = secondaryColorValue
-      ..strokeWidth = 2.0
+      ..strokeWidth = 2.9.w
       ..style = PaintingStyle.stroke;
 
     // Calculate the angle based on the visible fraction

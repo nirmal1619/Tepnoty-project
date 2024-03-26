@@ -125,7 +125,7 @@ class _ContactScreenState extends State<ContactScreen> {
                       end: Alignment.bottomCenter,
                       colors: [
                         Color.fromRGBO(
-                            78, 28, 147, 1), // Top color - deep purple
+                            60, 21, 116, 1), // Top color - deep purple
                         Color(0xFF8B4AE4) // Bottom color - light deep purple
                       ],
                     ),

@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:untitled2/Screens/Eighth%20Row/explore/search_screen.dart';
+import 'package:untitled2/Screens/Seven%20Row/screen/ninth%20row/profile_view.dart';
 import 'package:untitled2/constant/colors_value.dart';
+import 'package:untitled2/custom%20container/bottom_sheet_container.dart';
 import 'package:untitled2/widgets/custom_drawer.dart';
 import 'package:untitled2/Screens/Fourth%20Row/home_screen.dart';
 
-import '../Screens/Eighth Row/explore/explore_screen.dart';
-import '../Screens/Tenth Row/setting_screen.dart';
+import 'Screens/Eighth Row/explore/explore_video.dart';
 import 'Screen state/navigation_state.dart';
 
 class NavigationBarScreen extends StatelessWidget {
@@ -18,18 +20,41 @@ class NavigationBarScreen extends StatelessWidget {
     _scaffoldKey.currentState?.openDrawer();
   }
 
+  openSheet() {
+    Get.bottomSheet(
+        enterBottomSheetDuration: Duration(milliseconds: 500),
+        enableDrag: false,
+        barrierColor: Colors.transparent,
+        elevation: 0,
+        BottomSheetContainer(
+          onAdPress: () {},
+          onPostPress: () {},
+          onRealPress: () {},
+        ));
+  }
+
   @override
   Widget build(BuildContext context) {
     final getController = Get.put(NavigationController());
+
     final screens = [
       HomeScreen(
         openDrawerCallback: () {
           openDrawer();
         },
       ),
-      SearchBar(),
-      ExploreScreen(),
-      SettingScreen()
+      SearchScreen(),
+      ProfileViewScreen(
+        openBottomSheet: () {
+          openSheet();
+        },
+      ),
+      ExploreVideo(),
+      ProfileViewScreen(
+        openBottomSheet: () {
+          openSheet();
+        },
+      ),
     ];
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -42,6 +67,7 @@ class NavigationBarScreen extends StatelessWidget {
       //   ),
       // ),
       drawer: CustomDrawer(),
+
       body: Obx(() {
         return screens[getController.selectedIndex.value];
       }),

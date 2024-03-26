@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:untitled2/constant/colors_value.dart';
 import 'package:untitled2/Screen%20state/dataset_state.dart';
 import 'package:untitled2/Screens/Fourth%20Row/feedback_screen.dart';
 
 class DataSetScreen extends StatelessWidget {
-  DataSetScreen({super.key});
+  DataSetScreen({Key? key});
 
   final String text =
-      "It is the collection of data that is used to train the chatbot.Train the chatbot in theway you want it to respond to people";
+      "It is the collection of data that is used to train the chatbot.Train the chatbot in the way you want it to respond to people";
 
   final DataSetState dataState = Get.put(DataSetState());
 
@@ -19,10 +20,12 @@ class DataSetScreen extends StatelessWidget {
       floatingActionButton: GestureDetector(
         onTap: () => dataState.nextPage(),
         child: Padding(
-          padding: const EdgeInsets.only(right: 5, bottom: 45),
+          padding: EdgeInsets.only(
+              right: 5.w, bottom: 50.h), // Use .w and .h for width and height
           child: nextButtonContainer(),
         ),
       ),
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
@@ -31,33 +34,66 @@ class DataSetScreen extends StatelessWidget {
             }
             dataState.lastPage();
           },
-          icon: const Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back),
         ),
         actions: [
           IconButton(
-              onPressed: () {
-                Get.to(() => FeedbackScreen());
-              },
-              icon: Icon(Icons.forward))
+            onPressed: () {
+              Get.to(() => FeedbackScreen());
+            },
+            icon: Icon(Icons.forward),
+          ),
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.all(24.0),
+        padding: EdgeInsets.all(24.w).copyWith(top: 97.h), // Use .w for width
         child: SingleChildScrollView(
           child: Column(
             children: [
               Obx(() => middleContainer(currentPage.toInt())),
+
+              Obx(() => Column(
+                    children: [
+                      // Use .h for height
+                      Padding(
+                        padding: EdgeInsets.only(top: 22.h), // Use .w for width
+                        child: Text(
+                          dataState.headerText[currentPage.value],
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 24.sp, fontWeight: FontWeight.w700),
+                        ),
+                      ),
+                      //
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 14.w), // Use .w for width
+                        child: Text(
+                          dataState.subText[dataState.currentPage.value],
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 16.sp, color: Color(0xFFEC7EFF)),
+                        ),
+                      ),
+                    ],
+                  )),
+
               Obx(
                 () => currentPage == 1
                     ? buttonContainer()
-                    : const SizedBox(
-                        height: 50,
-                      ),
+                    : currentPage == 2
+                        ? SizedBox(height: 40.h)
+                        : SizedBox(height: 50.h), // Use .h for height
               ),
-              const SizedBox(
-                height: 40,
-              ),
-              Obx(() => pageIndicatorContainer(currentPage))
+              SizedBox(height: 127.h - 50.h), // Use .h for height
+              Obx(() => Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      pageIndicatorContainer(0, currentPage.value),
+                      pageIndicatorContainer(1, currentPage.value),
+                      pageIndicatorContainer(2, currentPage.value),
+                    ],
+                  )),
             ],
           ),
         ),
@@ -67,21 +103,21 @@ class DataSetScreen extends StatelessWidget {
 
   Container nextButtonContainer() {
     return Container(
-      width: 80,
-      height: 80,
+      width: 80.w, // Use .w for width
+      height: 80.h, // Use .h for height
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         border: Border.all(color: Colors.white),
       ),
       child: Container(
-        margin: const EdgeInsets.all(10),
-        width: 59,
-        height: 59,
-        decoration: const BoxDecoration(
+        margin: EdgeInsets.all(10.w), // Use .w for width
+        width: 59.w, // Use .w for width
+        height: 59.h, // Use .h for height
+        decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: secondaryColorValue,
         ),
-        child: const Center(
+        child: Center(
           child: Icon(
             Icons.arrow_forward_ios,
             color: Colors.white,
@@ -91,62 +127,36 @@ class DataSetScreen extends StatelessWidget {
     );
   }
 
-  Container pageIndicatorContainer(RxInt index) {
+  Container pageIndicatorContainer(int Currentpage, int selectedPage) {
+    bool isSelected = Currentpage == selectedPage;
     return Container(
-      height: 10,
-      color: Colors.transparent,
-      child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-        index == 0 ? slideContainer() : dotContainer(),
-        const SizedBox(
-          width: 5,
-        ),
-        index.toInt() == 1 ? slideContainer() : dotContainer(),
-        const SizedBox(
-          width: 5,
-        ),
-        index.toInt() == 2 ? slideContainer() : dotContainer(),
-      ]),
-    );
-  }
-
-  Container dotContainer() {
-    return Container(
-      height: 8,
-      width: 8,
+      margin: EdgeInsets.only(right: 5),
+      height: 8.h, // Use .h for height
+      width: isSelected ? 30.w : 8.w, // Use .w for width
       decoration: BoxDecoration(
-        color: Colors.grey.shade200,
-        borderRadius: BorderRadius.circular(4), // Border color white
-      ),
-    );
-  }
-
-  Container slideContainer() {
-    return Container(
-      height: 8,
-      width: 30,
-      decoration: BoxDecoration(
-        color: secondaryColorValue,
-        borderRadius: BorderRadius.circular(4), // Border color white
+        color: isSelected ? secondaryColorValue : Colors.grey.shade200,
+        borderRadius: BorderRadius.circular(4.r), // Use .r for radius
       ),
     );
   }
 
   Container buttonContainer() {
     return Container(
-      height: 50,
-      width: 150, // Set height to 150
+      margin: EdgeInsets.only(top: 38, bottom: 4),
+      height: 50.h, // Use .h for height
+      width: 150.w, // Use .w for width
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12), // Rounded edges with radius 12
-        gradient: const LinearGradient(
-          colors: [Color(0xFF904CEC), Color(0xFFCE7EF3)], // Gradient colors
+        borderRadius: BorderRadius.circular(12.r), // Use .r for radius
+        gradient: LinearGradient(
+          colors: [Color(0xFF904CEC), Color(0xFFCE7EF3)],
         ),
-        border: Border.all(color: Colors.white), // Border color white
+        border: Border.all(color: Colors.white),
       ),
-      child: const Center(
+      child: Center(
         child: Text(
           "Upload",
           style: TextStyle(
-            fontSize: 18,
+            fontSize: 18.sp, // Use .sp for font size
             fontWeight: FontWeight.bold,
             color: Colors.white,
           ),
@@ -157,48 +167,12 @@ class DataSetScreen extends StatelessWidget {
 
   SizedBox middleContainer(int index) {
     return SizedBox(
-      height: 550,
-      width: Get.width - 50,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          SizedBox(
-            width: Get.width - 48,
-            height: 400,
-            child: Image.asset(
-              dataState.images[index],
-              fit: BoxFit.cover,
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              dataState.headerText[index],
-              textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 14),
-            child: Text(
-              dataState.subText[dataState.currentPage.toInt()],
-              textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 16, color: Color(0xFFEC7EFF)),
-            ),
-          )
-          // SizedBox(
-          //   height: 15,
-          // ),
-        ],
+      width: 380.w, // Use .w for width
+      height: 462.h, // Use .h for height
+      child: Image.asset(
+        dataState.images[index],
+        fit: BoxFit.cover,
       ),
-      // decoration:
-      //     BoxDecoration(border: Border.all(width: 1, color: Colors.white)),
     );
   }
 }

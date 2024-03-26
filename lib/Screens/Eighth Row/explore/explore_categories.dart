@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:untitled2/Screens/Eighth%20Row/explore/explore_screen3.dart';
 
-
-class ExploreScreen2 extends StatefulWidget {
-  const ExploreScreen2({super.key});
+class ExploreCategories extends StatefulWidget {
+  const ExploreCategories({super.key});
 
   @override
-  State<ExploreScreen2> createState() => _ExploreScreen2State();
+  State<ExploreCategories> createState() => _ExploreCategoriesState();
 }
 
-class _ExploreScreen2State extends State<ExploreScreen2> {
+class _ExploreCategoriesState extends State<ExploreCategories> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,24 +30,25 @@ class _ExploreScreen2State extends State<ExploreScreen2> {
       body: CustomScrollView(
         slivers: [
           SliverPadding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            padding: EdgeInsets.symmetric(horizontal: 0.w),
             sliver: SliverGrid(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                crossAxisSpacing: 9.0,
-                mainAxisSpacing: 9.0,
+                // crossAxisSpacing: 9.0,
+                // mainAxisSpacing: 9.0,
               ),
               delegate: SliverChildBuilderDelegate(
                 (context, index) {
                   return Container(
-                    width: 100,
-                    height: 200,
+                    width: 100.w,
+                    height: 200.h,
                     decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(14)),
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(0.r)),
                   );
                 },
-                childCount: 8,
+                childCount: 10,
               ),
             ),
           ),

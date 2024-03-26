@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:untitled2/custom%20container/littleCurvedContainer.dart';
 import 'package:untitled2/Screens/sixth%20row/chat%20screens/all_message_request.dart';
 
 class MessageRequest extends StatelessWidget {
@@ -29,29 +29,32 @@ class MessageRequest extends StatelessWidget {
         children: [
           LittleCurvedContainer(),
           Positioned(
-            left: 24,
-            right: 24,
-            top: 70,
+            left: 0,
+            right: 0,
+            top: 90.h,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Row(
-                  children: [
-                    Text(
-                      "Manikumar Pokala",
-                      style: TextStyle(
-                        fontSize: 24,
-                        height: 1.4,
-                        fontWeight: FontWeight.w500,
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 30.w).copyWith(),
+                  child: Row(
+                    children: [
+                      Text(
+                        "Manikumar Pokala",
+                        style: TextStyle(
+                          fontSize: 24.sp,
+                          height: 1.4.h,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
-                    ),
-                    Spacer()
-                  ],
+                      Spacer()
+                    ],
+                  ),
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 30.h),
                 Container(
-                  height: 102,
-                  width: 102,
+                  height: 102.h,
+                  width: 102.w,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: Colors.grey, // Placeholder color
@@ -62,15 +65,15 @@ class MessageRequest extends StatelessWidget {
                 Text(
                   "Mani Kumar",
                   style: TextStyle(
-                    fontSize: 24,
-                    height: 1.4,
+                    fontSize: 24.sp,
+                    height: 1.4.h,
                   ),
                 ),
                 SizedBox(height: 0),
                 Text(
                   "Tepnoty Mani Kumar",
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 18.sp,
                   ),
                 ),
                 SizedBox(height: 0),
@@ -80,23 +83,23 @@ class MessageRequest extends StatelessWidget {
                     Text(
                       "506 Followers",
                       style: TextStyle(
-                        fontSize: 12,
+                        fontSize: 12.sp,
                       ),
                     ),
-                    SizedBox(width: 8),
+                    SizedBox(width: 8.w),
                     Text(
                       "8 Posts",
                       style: TextStyle(
-                        fontSize: 12,
+                        fontSize: 12.sp,
                       ),
                     ),
                   ],
                 ),
-                SizedBox(width: 8),
+                SizedBox(width: 8.w),
                 Text(
                   "Follow you",
                   style: TextStyle(
-                    fontSize: 12,
+                    fontSize: 12.sp,
                   ),
                 ),
               ],
@@ -108,8 +111,8 @@ class MessageRequest extends StatelessWidget {
           //   left: 20,
           //   top: 20,
           //   child: Container(
-          //     height: 38,
-          //     width: 38,
+          //     height: 38.h,
+          //     width: 38.w,
           //     decoration: BoxDecoration(
           //       shape: BoxShape.circle,
           //       color: Colors.grey, // Placeholder color
@@ -129,18 +132,21 @@ class MessageRequest extends StatelessWidget {
                   Center(
                     child: Text(
                       "3:34",
-                      style: TextStyle(color: Colors.grey.shade500),
+                      style: TextStyle(
+                          fontSize: 16.sp, color: Colors.grey.shade500),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: EdgeInsets.symmetric(horizontal: 8.w)
+                        .copyWith(bottom: 8.h),
                     child: Row(
                       children: [
                         Stack(
                           children: [
                             Container(
-                              height: 38,
-                              width: 38,
+                              margin: EdgeInsets.only(left: 24.w),
+                              height: 38.h,
+                              width: 38.w,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 color: Colors.grey, // Placeholder color
@@ -148,11 +154,11 @@ class MessageRequest extends StatelessWidget {
                               // Custom Avatar goes here
                             ),
                             Positioned(
-                              right: 5,
-                              bottom: 3,
+                              right: 5.w,
+                              bottom: 3.h,
                               child: Container(
-                                height: 10,
-                                width: 10,
+                                height: 10.h,
+                                width: 10.w,
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
 
@@ -163,20 +169,20 @@ class MessageRequest extends StatelessWidget {
                           ],
                         ),
                         SizedBox(
-                          width: 10,
+                          width: 10.w,
                         ),
                         Container(
-                          height: 18,
-                          constraints: BoxConstraints(
-                              minWidth: 30, maxWidth: Get.width - 200),
+                          height: 18.h,
+                          constraints:
+                              BoxConstraints(minWidth: 30.w, maxWidth: 228.w),
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.r),
                               border: Border.all(color: Colors.white)),
                           child: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 8),
                             child: Text(
                               "Hello bro",
-                              style: TextStyle(fontSize: 12),
+                              style: TextStyle(fontSize: 12.sp),
                             ),
                           ),
                         )
@@ -185,7 +191,7 @@ class MessageRequest extends StatelessWidget {
                   ),
                   Center(
                     child: Container(
-                      constraints: BoxConstraints(maxWidth: Get.width - 70),
+                      constraints: BoxConstraints(maxWidth: 310.w),
                       child: Center(
                         child: Text(
                             textAlign: TextAlign.center,
@@ -194,10 +200,10 @@ class MessageRequest extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 20.h,
                   ),
                   Container(
-                    constraints: BoxConstraints(maxWidth: Get.width - 20),
+                    constraints: BoxConstraints(maxWidth: 380.w),
                     child: Text(
                       textAlign: TextAlign.center,
                       "If you accept, they will also be able to call you and see info such as your activity and status when you have read messages. ",
@@ -205,19 +211,19 @@ class MessageRequest extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 10.h,
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: EdgeInsets.all(8.0.w),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Container(
-                          height: 37,
-                          width: Get.width * 0.26,
+                          height: 37.h,
+                          width: Get.width * 0.26.w,
                           decoration: BoxDecoration(
                               border: Border.all(color: Colors.white),
-                              borderRadius: BorderRadius.circular(5)),
+                              borderRadius: BorderRadius.circular(5.r)),
                           child: Center(
                             child: Text(
                               "Block",
@@ -226,11 +232,11 @@ class MessageRequest extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          height: 37,
-                          width: Get.width * 0.35,
+                          height: 37.h,
+                          width: Get.width * 0.35.w,
                           decoration: BoxDecoration(
                               border: Border.all(color: Colors.white),
-                              borderRadius: BorderRadius.circular(5)),
+                              borderRadius: BorderRadius.circular(5.r)),
                           child: Center(
                             child: Text(
                               "Delete",
@@ -239,11 +245,11 @@ class MessageRequest extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          height: 37,
-                          width: Get.width * 0.26,
+                          height: 37.h,
+                          width: Get.width * 0.26.w,
                           decoration: BoxDecoration(
                               border: Border.all(color: Colors.white),
-                              borderRadius: BorderRadius.circular(5)),
+                              borderRadius: BorderRadius.circular(5.r)),
                           child: Center(
                             child: Text(
                               "Accept",
@@ -271,8 +277,8 @@ class LittleCurvedContainer extends StatelessWidget {
     return ClipPath(
         clipper: MyClipper(),
         child: Container(
-          width: Get.width,
-          height: Get.height,
+          width: 428.w,
+          height: 921.h,
           decoration: const BoxDecoration(
             color: Color(0xFF6E40E0),
           ),
@@ -284,15 +290,16 @@ class MyClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     var path = Path();
-    path.lineTo(0, 105 - 40); // Starting point
+    path.lineTo(0, 115.h - 35.h); // Starting point
     path.quadraticBezierTo(
       0,
-      151 - 40,
-      57,
-      151 - 40,
+      161.h - 35.h,
+      57.w,
+      161.h - 35.h,
     );
-    path.lineTo(size.width - 80, 151 - 40);
-    path.quadraticBezierTo(size.width - 35, 151 - 40, size.width, 180 - 40);
+    path.lineTo(size.width - 110.w, 161.h - 35.h);
+    path.quadraticBezierTo(
+        size.width - 35.w, 161.h - 35.h, size.width, 210.h - 35.h);
     path.lineTo(size.width, 0);
     path.close(); // Close the path to form a shape
     return path;
@@ -306,6 +313,7 @@ class MyClipper extends CustomClipper<Path> {
 
 PopupMenuButton buildPopupMenuButton() {
   return PopupMenuButton(
+    padding: EdgeInsets.zero,
     icon: Icon(Icons.menu),
     color: Colors.black,
     position: PopupMenuPosition.under,
@@ -324,18 +332,22 @@ PopupMenuButton buildPopupMenuButton() {
 
 PopupMenuItem buildPopupMenuItem(IconData icon, String text) {
   return PopupMenuItem(
-    padding: EdgeInsets.zero,
+    // padding: EdgeInsets.symmetric(horizontal: 10),
     child: Container(
-      width: double.infinity,
+      width: 217.w,
+
+      height: 44.h,
       color: Colors.grey[900], // Dark gray container
-      padding: EdgeInsets.symmetric(
-          vertical: 5,
-          horizontal: 5), // Add padding for space inside the container
+      // padding: EdgeInsets.symmetric(
+      //     vertical: 5.h,
+      //     horizontal: 15.w), // Add padding for space inside the container
       child: Row(
         children: [
+          SizedBox(width: 5.w),
           Icon(icon, color: Colors.white), // Icon
-          SizedBox(width: 5), // SizedBox for spacing
-          Text(text, style: TextStyle(color: Colors.white)), // String
+          SizedBox(width: 5.w), // SizedBox for spacing
+          Text(text,
+              style: TextStyle(color: Colors.white, fontSize: 16.sp)), // String
         ],
       ),
     ),

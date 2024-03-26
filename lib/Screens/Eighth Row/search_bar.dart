@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:untitled2/Screens/Seven%20Row/screen/ninth%20row/profile_view.dart';
 import 'package:untitled2/Screens/ninth%20row/profile_view.dart';
 
 class SearchBarScreen extends StatefulWidget {
@@ -29,18 +31,25 @@ class _SearchBarScreenState extends State<SearchBarScreen> {
           Center(
             // Wrapping with Center widget to position in the middle
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 0),
-              width: Get.width - 48,
-              height: 48,
+              padding: EdgeInsets.symmetric(horizontal: 0.w),
+              width: 380.w,
+              height: 48.h,
               decoration: BoxDecoration(
-                border: Border.all(width: 1, color: Colors.grey),
-                borderRadius: BorderRadius.circular(14),
+                border: Border.all(width: 1.w, color: Colors.grey),
+                borderRadius: BorderRadius.circular(14.r),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.search, color: Colors.grey),
-                  SizedBox(width: 8),
+                  SizedBox(
+                    width: 10.w,
+                  ),
+                  Icon(
+                    Icons.search,
+                    color: Colors.grey,
+                    size: 20.sp,
+                  ),
+                  SizedBox(width: 8.w),
                   Expanded(
                     child: TextField(
                       decoration: InputDecoration(
@@ -53,12 +62,16 @@ class _SearchBarScreenState extends State<SearchBarScreen> {
               ),
             ),
           ),
-          const SizedBox(height: 200),
-          const Icon(Icons.search, size: 200, color: Colors.white),
+          SizedBox(height: 250.h),
+          Icon(Icons.search, size: 161.w, color: Color(0XFFC9C9C9)),
           const SizedBox(height: 16),
-          const Text(
-            'Search you want to explore',
-            style: TextStyle(fontSize: 16, color: Color(0xFFD9D9D9)),
+          Container(
+            width: 218.w,
+            child: Text(
+              textAlign: TextAlign.center,
+              'Search what do you want to explore',
+              style: TextStyle(fontSize: 16.sp, color: Color(0XFFC9C9C9)),
+            ),
           ),
         ],
       ),

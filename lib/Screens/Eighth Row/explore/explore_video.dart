@@ -1,20 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:untitled2/Screens/Eighth%20Row/explore/explore_screen2.dart';
+import 'package:untitled2/Screens/Eighth%20Row/explore/explore_categories.dart';
 
-class ExploreScreen extends StatefulWidget {
-  const ExploreScreen({super.key});
+class ExploreVideo extends StatefulWidget {
+  const ExploreVideo({super.key});
 
   @override
-  State<ExploreScreen> createState() => _ExploreScreenState();
+  State<ExploreVideo> createState() => _ExploreVideoState();
 }
 
-class _ExploreScreenState extends State<ExploreScreen> {
+class _ExploreVideoState extends State<ExploreVideo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
+        surfaceTintColor: Colors.transparent,
+        backgroundColor: Colors.transparent,
+        shadowColor: Colors.transparent,
+        scrolledUnderElevation: 4,
+        foregroundColor: Colors.transparent,
         leading: IconButton(
           onPressed: () {},
           icon: const Icon(Icons.arrow_back),
@@ -22,7 +28,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
         actions: [
           IconButton(
               onPressed: () {
-                Get.to(() => ExploreScreen2());
+                Get.to(() => ExploreCategories());
               },
               icon: Icon(Icons.arrow_forward)),
         ],
@@ -31,8 +37,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
         scrollDirection: Axis.vertical,
         physics: const PageScrollPhysics(),
         itemCount: 10, // Replace 10 with your actual item count
-        padding: const EdgeInsets.only(
-            bottom: kToolbarHeight), // Extend body to app bar
+        padding: EdgeInsets.only(bottom: 0), // Extend body to app bar
         itemBuilder: (context, index) {
           return _buildListItem(context, index);
         },
@@ -45,21 +50,22 @@ class _ExploreScreenState extends State<ExploreScreen> {
       // alignment: AlignmentDirectional.center,
       children: [
         Container(
-          margin: const EdgeInsets.symmetric(vertical: 0),
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          color: const Color.fromARGB(255, 119, 119, 119),
+          margin: EdgeInsets.symmetric(vertical: 0.h),
+          height: 926.h - 61.h,
+          width: 428.w,
+          color:
+              index % 2 == 0 ? Color.fromARGB(255, 119, 119, 119) : Colors.red,
           child: Center(
             child: Text(
               "$index",
-              style: const TextStyle(fontSize: 24),
+              style: TextStyle(fontSize: 24.sp),
             ),
           ),
           // Add your child widget here if needed
         ),
         Positioned(
-            left: Get.width * 0.45,
-            top: Get.height * 0.55,
+            left: 428 * 0.45.w,
+            top: 926 * 0.55.h,
             child: IconButton(
               onPressed: () {},
               icon: const Icon(
@@ -67,8 +73,8 @@ class _ExploreScreenState extends State<ExploreScreen> {
               ),
             )),
         Positioned(
-            left: Get.width * 0.85,
-            top: Get.height * 0.65,
+            left: 428 * 0.85.w,
+            top: 926 * 0.65.h,
             child: Column(
               children: [
                 IconButton(
@@ -87,28 +93,34 @@ class _ExploreScreenState extends State<ExploreScreen> {
               ],
             )),
         Positioned(
-            left: Get.width * 0.05,
-            top: Get.height * 0.82,
+            left: 428 * 0.05.w,
+            top: 926 * 0.82.h,
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   children: [
-                    const Text(
+                    Text(
                       "Tittle/Nature",
-                      style: TextStyle(fontSize: 16),
+                      style: TextStyle(fontSize: 20.sp),
                     ),
-                    const SizedBox(
-                      width: 5,
+                    SizedBox(
+                      width: 5.w,
                     ),
                     button(),
                   ],
                 ),
-                const Row(
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
                       "Lorem Lorem Ipsum is a type of",
-                      style: TextStyle(color: Color(0xFFE6E6E6)),
-                    )
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                          color: Color(0xFFE6E6E6).withOpacity(1),
+                          fontSize: 12),
+                    ),
+                    // Spacer()
                   ],
                 )
               ],
@@ -122,25 +134,25 @@ button() {
   return GestureDetector(
     onTap: () {},
     child: Container(
-      width: 110,
-      height: 20,
-      child: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 4),
+      width: 110.w,
+      height: 20.h,
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 4.w),
         child: Center(
           child: Text(
             "Request To Message",
-            style: TextStyle(fontSize: 10, fontWeight: FontWeight.w500),
+            style: TextStyle(fontSize: 8.spMin, fontWeight: FontWeight.w500),
           ),
         ),
       ),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        gradient: const LinearGradient(
+        borderRadius: BorderRadius.circular(12.r),
+        gradient: LinearGradient(
           colors: [Color(0xFF8B4AE4), Color(0xFFCE7EF3)],
           begin: Alignment.centerLeft,
           end: Alignment.centerRight,
         ),
-        border: Border.all(color: Colors.white, width: 1.3),
+        border: Border.all(color: Colors.white, width: 1.3.w),
       ),
     ),
   );

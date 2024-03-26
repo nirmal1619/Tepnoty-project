@@ -4,7 +4,7 @@ import 'package:get/get_rx/get_rx.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:untitled2/Screens/Fourth%20Row/home_screen.dart';
 
-import '../Screens/Eighth Row/explore/explore_screen.dart';
+import '../Screens/Eighth Row/explore/explore_video.dart';
 import '../Screens/Tenth Row/setting_screen.dart';
 
 class NavigationController extends GetxController {
@@ -16,5 +16,4 @@ class NavigationController extends GetxController {
   void openDrawer() {
     _scaffoldKey.currentState?.openDrawer();
   }
-
 }
