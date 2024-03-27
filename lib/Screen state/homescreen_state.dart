@@ -18,7 +18,6 @@ class CardController extends GetxController {
     lastCard.value = selectedCard.value;
     selectedCard.value = index;
     var temp1 = iconTextList[selectedCard.value];
-    var temp2 = iconTextList[lastCard.value];
     iconTextList.removeAt(selectedCard.value);
     // iconTextList.removeAt(lastCard.value);
     iconTextList.insert(0, temp1);
